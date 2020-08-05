@@ -1,0 +1,45 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+
+    compileSdkVersion globalConfig.compileSdkVersion
+    buildToolsVersion globalConfig.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion globalConfig.minSdkVersion
+        targetSdkVersion globalConfig.targetSdkVersion
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            buildConfigField("String", "BASE_URL", '"' + dataConfig.baseUrl + '"')
+        }
+        debug {
+            buildConfigField("String", "BASE_URL", '"' + dataConfig.baseUrl + '"')
+        }
+    }
+}
+
+dependencies {
+
+    // Domain layer
+    api project(path: ':domain')
+
+    // Kotlin stdlib
+    implementation globalDependencies.stdlib
+
+    // GSON
+    implementation dataDependencies.gson
+
+    // Retrofit2
+    api dataDependencies.retrofit
+    api dataDependencies.retrofitConverterGson
+
+    // OkHttp3
+    api dataDependencies.okHttp
+    api dataDependencies.okHttpLoggingInterceptor
+}

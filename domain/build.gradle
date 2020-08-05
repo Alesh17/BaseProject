@@ -1,0 +1,36 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+
+    compileSdkVersion globalConfig.compileSdkVersion
+    buildToolsVersion globalConfig.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion globalConfig.minSdkVersion
+        targetSdkVersion globalConfig.targetSdkVersion
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+        }
+    }
+}
+
+dependencies {
+
+    // Kotlin stdlib
+    implementation globalDependencies.stdlib
+
+    // AndroidX dependencies
+    implementation globalDependencies.coreKtx
+
+    // Kotlin Coroutines
+    api domainDependencies.coroutinesCore
+    api domainDependencies.coroutinesAndroid
+
+    // Inject annotation support
+    api domainDependencies.javaxInject
+}

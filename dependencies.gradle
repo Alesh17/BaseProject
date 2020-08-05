@@ -55,24 +55,17 @@ ext {
 
     appDependencies = [
 
-            lifecycleExtensions     : "androidx.lifecycle:lifecycle-extensions:${libraryVersions.lifecycleExtensionsVersion}",
-            lifecycleViewmodelKtx   : "androidx.lifecycle:lifecycle-viewmodel-ktx:${libraryVersions.lifecycleViewModelKtxVersion}",
-            legacySupportV4         : "androidx.legacy:legacy-support-v4:${libraryVersions.legacySupportVersion}",
-            cardView                : "androidx.cardview:cardview:${libraryVersions.cardViewVersion}",
-            navigationFragmentKtx   : "androidx.navigation:navigation-fragment-ktx:${libraryVersions.navigationVersion}",
-            navigationUiKtx         : "androidx.navigation:navigation-ui-ktx:${libraryVersions.navigationVersion}",
-            activityKtx             : "androidx.activity:activity-ktx:${libraryVersions.ktxActivityVersion}",
-            fragmentKtx             : "androidx.fragment:fragment-ktx:${libraryVersions.ktxFragmentVersion}",
-            glide                   : "com.github.bumptech.glide:glide:${libraryVersions.glide}",
-            materialDialogsCore     : "com.afollestad.material-dialogs:core:${libraryVersions.materialDialogs}",
-            materialDialogsLifecycle: "com.afollestad.material-dialogs:lifecycle:${libraryVersions.materialDialogs}",
+            lifecycleExtensions  : "androidx.lifecycle:lifecycle-extensions:${libraryVersions.lifecycleExtensionsVersion}",
+            lifecycleViewmodelKtx: "androidx.lifecycle:lifecycle-viewmodel-ktx:${libraryVersions.lifecycleViewModelKtxVersion}",
+            legacySupportV4      : "androidx.legacy:legacy-support-v4:${libraryVersions.legacySupportVersion}",
+            cardView             : "androidx.cardview:cardview:${libraryVersions.cardViewVersion}",
+            navigationFragmentKtx: "androidx.navigation:navigation-fragment-ktx:${libraryVersions.navigationVersion}",
+            navigationUiKtx      : "androidx.navigation:navigation-ui-ktx:${libraryVersions.navigationVersion}",
+            activityKtx          : "androidx.activity:activity-ktx:${libraryVersions.ktxActivityVersion}",
+            fragmentKtx          : "androidx.fragment:fragment-ktx:${libraryVersions.ktxFragmentVersion}",
 
-            dagger                  : "com.google.dagger:dagger:${libraryVersions.daggerVersion}",
-            daggerCompiler          : "com.google.dagger:dagger-compiler:${libraryVersions.daggerVersion}",
-
-            conscrypt               : "org.conscrypt:conscrypt-android:${libraryVersions.conscryptVersion}",
-
-            coroutineWorkManager    : "androidx.work:work-runtime-ktx:${libraryVersions.coroutineWorkManager}",
+            dagger               : "com.google.dagger:dagger:${libraryVersions.daggerVersion}",
+            daggerCompiler       : "com.google.dagger:dagger-compiler:${libraryVersions.daggerVersion}"
     ]
 
     /**
@@ -87,11 +80,7 @@ ext {
             retrofitConverterGson   : "com.squareup.retrofit2:converter-gson:${libraryVersions.retrofitVersion}",
 
             okHttp                  : "com.squareup.okhttp3:okhttp:${libraryVersions.okHttpVersion}",
-            okHttpLoggingInterceptor: "com.squareup.okhttp3:logging-interceptor:${libraryVersions.okHttpVersion}",
-
-            playServices            : "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:${libraryVersions.playServices}",
-            firebaseMessaging       : "com.google.firebase:firebase-messaging:${libraryVersions.firebaseMessaging}",
-            firebaseDynamicLinks    : "com.google.firebase:firebase-dynamic-links:${libraryVersions.firebaseDynamicLinks}",
+            okHttpLoggingInterceptor: "com.squareup.okhttp3:logging-interceptor:${libraryVersions.okHttpVersion}"
     ]
 
     /**
@@ -104,25 +93,5 @@ ext {
             coroutinesAndroid: "org.jetbrains.kotlinx:kotlinx-coroutines-android:${libraryVersions.coroutineVersion}",
 
             javaxInject      : "javax.inject:javax.inject:${libraryVersions.javaxInjectVersion}"
-    ]
-
-    /**
-     * Dependencies for country picker module
-     */
-
-    pickerDependencies = [
-
-            recyclerView         : "androidx.recyclerview:recyclerview:${libraryVersions.recyclerViewVersion}",
-            lifecycleExtensions  : "androidx.lifecycle:lifecycle-extensions:${libraryVersions.lifecycleExtensionsVersion}",
-            lifecycleViewmodelKtx: "androidx.lifecycle:lifecycle-viewmodel-ktx:${libraryVersions.lifecycleViewModelKtxVersion}"
-    ]
-
-    /**
-     * Dependencies for image slider module
-     */
-
-    imageSliderDependencies = [
-
-            exoPlayer: "com.google.android.exoplayer:exoplayer:${libraryVersions.exoPlayer}"
     ]
 }

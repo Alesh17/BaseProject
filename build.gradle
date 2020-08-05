@@ -13,7 +13,6 @@ buildscript {
         classpath globalDependencies.buildGradle
         classpath globalDependencies.kotlinGradlePlugin
         classpath globalDependencies.navigationSafeArgsPlugin
-        classpath globalDependencies.googleServices
     }
 }
 

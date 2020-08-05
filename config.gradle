@@ -11,7 +11,8 @@ ext {
     globalConfig = [
             compileSdkVersion: 29,
             minSdkVersion    : 21,
-            targetSdkVersion : 29
+            targetSdkVersion : 29,
+            buildToolsVersion: "29.0.3"
     ]
 
     /**
@@ -48,7 +49,7 @@ ext {
 }
 
 /**
- * Versioning calculations
+ * Versions calculations
  */
 
 static Integer generateVersionCode(versionMajor, versionMinor, versionPatch) {
