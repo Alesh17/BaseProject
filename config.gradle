@@ -1,0 +1,60 @@
+/**
+ * This file defines configuration for all project
+ */
+
+ext {
+
+    /**
+     * Common configuration for all project
+     */
+
+    globalConfig = [
+            compileSdkVersion: 29,
+            minSdkVersion    : 21,
+            targetSdkVersion : 29
+    ]
+
+    /**
+     * Configuration for app module
+     */
+
+    def appVersionMajor = 1
+    def appVersionMinor = 0
+    def appVersionPatch = 0
+
+    appConfig = [
+
+            applicationId: 'com.alesh.baseproject',
+
+            versionCode  : generateVersionCode(appVersionMajor, appVersionMinor, appVersionPatch),
+            versionName  : generateVersionName(appVersionMajor, appVersionMinor, appVersionPatch)
+    ]
+
+    /**
+     * Configuration for data module
+     */
+
+    dataConfig = [
+            baseUrl: ""
+    ]
+
+    /**
+     * Configuration for domain module
+     */
+
+    domainConfig = [
+
+    ]
+}
+
+/**
+ * Versioning calculations
+ */
+
+static Integer generateVersionCode(versionMajor, versionMinor, versionPatch) {
+    return versionMajor * 1000 + versionMinor * 100 + versionPatch
+}
+
+static String generateVersionName(versionMajor, versionMinor, versionPatch) {
+    return "${versionMajor}.${versionMinor}.${versionPatch}"
+}
