@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Common -->
+    <dimen name="base_margin">8dp</dimen>
+    <dimen name="recycler_padding">24dp</dimen>
+    <dimen name="cornerRadius">12dp</dimen>
+    <dimen name="elevation">0dp</dimen>
+
+    <!-- Loader view -->
+    <dimen name="loader_progressBar_diameter">42dp</dimen>
+
+</resources>

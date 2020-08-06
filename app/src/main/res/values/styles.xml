@@ -1,10 +1,26 @@
 <resources>
-    <!-- Base application theme. -->
+
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="RecyclerViewStyle">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:clipToPadding">false</item>
+        <item name="android:overScrollMode">never</item>
+        <item name="android:scrollbars">none</item>
+        <item name="android:paddingTop">@dimen/recycler_padding</item>
+        <item name="android:paddingBottom">@dimen/recycler_padding</item>
+        <item name="android:paddingStart">@dimen/recycler_padding</item>
+        <item name="android:paddingEnd">@dimen/recycler_padding</item>
+    </style>
+
+    <style name="CardViewStyle">
+        <item name="cardCornerRadius">@dimen/cornerRadius</item>
+        <item name="cardElevation">@dimen/elevation</item>
+        <item name="cardPreventCornerOverlap">false</item>
     </style>
 
 </resources>

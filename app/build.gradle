@@ -58,6 +58,10 @@ dependencies {
     implementation appDependencies.activityKtx
     implementation appDependencies.fragmentKtx
 
+    // Material dialogs
+    implementation appDependencies.materialDialogsCore
+    implementation appDependencies.materialDialogsLifecycle
+
     // Material design system
     implementation globalDependencies.material
 }

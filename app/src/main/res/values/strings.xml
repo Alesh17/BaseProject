@@ -1,3 +1,27 @@
 <resources>
-    <string name="app_name">BaseProject</string>
+
+    <!-- Common strings -->
+    <string name="app_name">Base Project</string>
+    <string name="email_example">example@mail.com</string>
+    <string name="password_example">•••••••</string>
+    <string name="date_example">03 Apr, 2020</string>
+    <string name="tap_to_exit">Press Back again to exit.</string>
+    <string name="not_available">This feature will be available later…</string>
+    <string name="close_caps">CLOSE</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+
+    <!-- Errors -->
+    <string name="generic_error">Something went wrong. Please try later.</string>
+    <string name="server_error">Server error. Please try later.</string>
+    <string name="timeout_error">Timeout error. Please try again when network stabilizes.</string>
+    <string name="noInternetConnection_error">No internet connection. Please check the internet.</string>
+    <string name="unauthorized_error">Unauthorized error. Please sign-in and try again.</string>
+    <string name="notFound_error">404 error. Please try later.</string>
+    <string name="badRequest_error">400 error. Bad request. Please try later.</string>
+
+    <!-- Permission -->
+    <string name="save_file_permission_error">To download a file, you must obtain permission to write to the phone storage.</string>
+    <string name="image_picker_permission_error">To set image profile, you must obtain permission to read to the phone storage.</string>
+
 </resources>
