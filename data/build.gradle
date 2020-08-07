@@ -3,6 +3,9 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
 
+def keysProperties = new Properties()
+keysProperties.load(new FileInputStream(rootProject.file("keys.properties")))
+
 android {
 
     compileSdkVersion globalConfig.compileSdkVersion
@@ -20,6 +23,7 @@ android {
         }
         debug {
             buildConfigField("String", "BASE_URL", '"' + dataConfig.baseUrl + '"')
+            buildConfigField("String", "ACCESS_TOKEN", '"' + keysProperties['accessToken'] + '"')
         }
     }
 }
@@ -34,6 +38,9 @@ dependencies {
 
     // GSON
     implementation dataDependencies.gson
+
+    // Library for EncryptedSharedPreferences
+    implementation dataDependencies.securityCryptoVersion
 
     // Retrofit2
     api dataDependencies.retrofit

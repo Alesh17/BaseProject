@@ -12,3 +12,6 @@
 /captures
 .externalNativeBuild
 .cxx
+
+# Files with sensitive data
+keys.properties

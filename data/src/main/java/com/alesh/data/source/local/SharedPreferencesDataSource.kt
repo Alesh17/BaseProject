@@ -1,7 +1,8 @@
 package com.alesh.data.source.local
 
 import android.app.Application
-import android.content.Context
+import androidx.security.crypto.EncryptedSharedPreferences
+import androidx.security.crypto.MasterKey
 import com.alesh.data.common.constants.KeySharedPrefsName
 import com.alesh.data.common.constants.KeyUserId
 import com.alesh.data.util.get
@@ -12,7 +13,18 @@ import javax.inject.Inject
 class SharedPreferencesDataSource @Inject constructor(private val app: Application) {
 
     private val sharedPrefs by lazy {
-        app.getSharedPreferences(KeySharedPrefsName, Context.MODE_PRIVATE)
+
+        val masterKey = MasterKey.Builder(app)
+            .setKeyScheme(MasterKey.KeyScheme.AES256_GCM)
+            .build()
+
+        EncryptedSharedPreferences.create(
+            app,
+            KeySharedPrefsName,
+            masterKey,
+            EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
+            EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
+        )
     }
 
     fun setUserId(id: Int) {

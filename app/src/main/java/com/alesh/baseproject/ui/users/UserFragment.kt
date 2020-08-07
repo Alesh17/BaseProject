@@ -64,7 +64,7 @@ class UserFragment : BaseFragment(), View.OnClickListener,
     }
 
     private fun setupSwipeToRefresh() {
-        laySwipeToRefresh.setColorSchemeResources(R.color.colorPrimary)
+        laySwipeToRefresh.setColorSchemeResources(R.color.colorPrimary, R.color.colorPrimaryDark)
         laySwipeToRefresh.setOnRefreshListener(this)
     }
 
