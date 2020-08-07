@@ -6,7 +6,7 @@
 [![API](https://img.shields.io/badge/API-21%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=21)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Alesh-blue)](https://www.linkedin.com/in/dmitry-aleshkov)
 
-Dependency
+How to use
 -----
 
 1. Download this repository.
