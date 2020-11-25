@@ -2,7 +2,6 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -28,12 +27,12 @@
         app:layout_constraintTop_toBottomOf="@+id/btnInfo">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvShipments"
+            android:id="@+id/rvUsers"
             style="@style/RecyclerViewStyle"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/view_holder_shipment" />
+            tools:listitem="@layout/view_holder_user" />
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 

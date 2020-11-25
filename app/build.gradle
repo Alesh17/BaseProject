@@ -1,7 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
-apply plugin: 'kotlin-android-extensions'
 apply plugin: "androidx.navigation.safeargs"
 
 android {
@@ -46,8 +45,6 @@ dependencies {
     kapt appDependencies.daggerCompiler
 
     // AndroidX dependencies
-    implementation globalDependencies.coreKtx
-    implementation globalDependencies.stdlib
     implementation globalDependencies.constraintLayout
     implementation appDependencies.lifecycleExtensions
     implementation appDependencies.lifecycleViewmodelKtx

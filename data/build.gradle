@@ -1,7 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
-apply plugin: 'kotlin-android-extensions'
 
 def keysProperties = new Properties()
 keysProperties.load(new FileInputStream(rootProject.file("keys.properties")))
@@ -33,10 +32,7 @@ dependencies {
     // Domain layer
     api project(path: ':domain')
 
-    // Kotlin stdlib
-    implementation globalDependencies.stdlib
-
-    // GSON
+    // Gson
     implementation dataDependencies.gson
 
     // Library for EncryptedSharedPreferences

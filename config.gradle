@@ -36,7 +36,7 @@ ext {
      */
 
     dataConfig = [
-            baseUrl: "http://alesh.com"
+            baseUrl: "http://example.com"
     ]
 
     /**

@@ -3,8 +3,8 @@ package com.alesh.data.source.local
 import android.app.Application
 import androidx.security.crypto.EncryptedSharedPreferences
 import androidx.security.crypto.MasterKey
-import com.alesh.data.common.constants.KeySharedPrefsName
-import com.alesh.data.common.constants.KeyUserId
+import com.alesh.data.common.constants.KEY_SHARED_PREFS_NAME
+import com.alesh.data.common.constants.KEY_USER_ID
 import com.alesh.data.util.get
 import com.alesh.data.util.put
 import com.alesh.data.util.remove
@@ -20,7 +20,7 @@ class SharedPreferencesDataSource @Inject constructor(private val app: Applicati
 
         EncryptedSharedPreferences.create(
             app,
-            KeySharedPrefsName,
+            KEY_SHARED_PREFS_NAME,
             masterKey,
             EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
             EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
@@ -28,14 +28,14 @@ class SharedPreferencesDataSource @Inject constructor(private val app: Applicati
     }
 
     fun setUserId(id: Int) {
-        sharedPrefs.put(KeyUserId, id)
+        sharedPrefs.put(KEY_USER_ID, id)
     }
 
     fun getUserId(): Int {
-        return sharedPrefs.get(KeyUserId, 1)
+        return sharedPrefs.get(KEY_USER_ID, 1)
     }
 
     fun deleteUserInfo() {
-        sharedPrefs.remove(KeyUserId)
+        sharedPrefs.remove(KEY_USER_ID)
     }
 }
