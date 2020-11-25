@@ -1,6 +1,6 @@
 package com.alesh.data.util
 
-import com.alesh.domain.error.ApplicationErrors
+import com.alesh.domain.error.ApplicationError
 import com.alesh.domain.model.result.OwnResult
 import retrofit2.HttpException
 import java.net.ConnectException
@@ -13,20 +13,20 @@ suspend fun <T> safeApiCall(apiCall: suspend () -> T): OwnResult<T> {
         OwnResult.Success(apiCall.invoke())
     } catch (throwable: Throwable) {
         when (throwable) {
-            is SocketTimeoutException -> OwnResult.Error(ApplicationErrors.TimeOut)
-            is ConnectException       -> OwnResult.Error(ApplicationErrors.NoInternetConnection)
-            is UnknownHostException   -> OwnResult.Error(ApplicationErrors.NoInternetConnection)
+            is SocketTimeoutException -> OwnResult.Error(ApplicationError.TimeOut)
+            is ConnectException       -> OwnResult.Error(ApplicationError.NoInternetConnection)
+            is UnknownHostException   -> OwnResult.Error(ApplicationError.NoInternetConnection)
             is HttpException          -> {
                 when (throwable.code()) {
-                    HTTP_BAD_REQUEST    -> OwnResult.Error(ApplicationErrors.BadRequest)
-                    HTTP_UNAUTHORIZED   -> OwnResult.Error(ApplicationErrors.Unauthorized)
-                    HTTP_NOT_FOUND      -> OwnResult.Error(ApplicationErrors.NotFound)
-                    HTTP_INTERNAL_ERROR -> OwnResult.Error(ApplicationErrors.Server)
-                    else                -> OwnResult.Error(ApplicationErrors.Generic)
+                    HTTP_BAD_REQUEST    -> OwnResult.Error(ApplicationError.BadRequest)
+                    HTTP_UNAUTHORIZED   -> OwnResult.Error(ApplicationError.Unauthorized)
+                    HTTP_NOT_FOUND      -> OwnResult.Error(ApplicationError.NotFound)
+                    HTTP_INTERNAL_ERROR -> OwnResult.Error(ApplicationError.Server)
+                    else                -> OwnResult.Error(ApplicationError.Generic)
                 }
             }
             else                      -> {
-                OwnResult.Error(ApplicationErrors.Generic)
+                OwnResult.Error(ApplicationError.Generic)
             }
         }
     }
