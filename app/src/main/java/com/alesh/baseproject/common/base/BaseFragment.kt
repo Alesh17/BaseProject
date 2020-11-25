@@ -34,7 +34,6 @@ abstract class BaseFragment(@LayoutRes layoutId: Int) : Fragment(layoutId) {
     }
 
     open fun observeViewModel() {
-
         viewModel.loading.observe(
             viewLifecycleOwner,
             EventObserver {

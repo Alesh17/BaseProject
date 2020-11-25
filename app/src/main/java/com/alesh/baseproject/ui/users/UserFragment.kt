@@ -21,13 +21,13 @@ class UserFragment : BaseFragment(R.layout.fragment_user), View.OnClickListener,
     private var bindingDraft: FragmentUserBinding? = null
 
     private val adapter by lazy { UserAdapter(viewModel::openDetails) }
-    override val viewModel: UserViewModel by viewModel { App.component.userViewModel }
+    override val viewModel by viewModel { App.component.userViewModel }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         bindingDraft = FragmentUserBinding.bind(view)
-        observeViewModel()
         setupButtons()
+        observeViewModel()
         setupRecyclerView()
         setupSwipeToRefresh()
     }
