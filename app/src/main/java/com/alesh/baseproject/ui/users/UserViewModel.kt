@@ -7,7 +7,8 @@ import com.alesh.baseproject.util.livedata.Event
 import com.alesh.domain.error.ApplicationError
 import com.alesh.domain.interactor.UserInteractor
 import com.alesh.domain.model.dto.User
-import com.alesh.domain.model.result.OwnResult
+import com.alesh.domain.model.result.onError
+import com.alesh.domain.model.result.onSuccess
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -22,10 +23,10 @@ class UserViewModel @Inject constructor(
 
     fun getUsers() {
         viewModelScope.launch {
-            when (val result = interactor.getUsers()) {
-                is OwnResult.Success -> shipments.postValue(Event(result.value))
-                is OwnResult.Error   -> error.postValue(Event(result.error))
-            }
+            loading.postValue(Event(false))
+            interactor.getUsers()
+                .onSuccess { shipments.postValue(Event(it)) }
+                .onError { error.postValue(Event(it)) }
             loading.postValue(Event(false))
         }
     }
