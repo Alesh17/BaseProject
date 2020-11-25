@@ -7,7 +7,5 @@ import com.alesh.baseproject.util.viewModel
 
 class UserDetailsFragment : BaseFragment(R.layout.fragment_user_details) {
 
-    override val viewModel: UserDetailsViewModel by viewModel {
-        App.component.userDetailsViewModel
-    }
+    override val viewModel: UserDetailsViewModel by viewModel { App.component.userDetailsViewModel }
 }

@@ -1,13 +1,12 @@
 package com.alesh.baseproject.ui.users
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.alesh.baseproject.App
 import com.alesh.baseproject.R
 import com.alesh.baseproject.common.base.BaseFragment
+import com.alesh.baseproject.databinding.FragmentUserBinding
 import com.alesh.baseproject.ui.users.adapter.UserAdapter
 import com.alesh.baseproject.util.decoration.LinearLayoutDecoration
 import com.alesh.baseproject.util.error.message
@@ -18,13 +17,15 @@ import com.alesh.baseproject.ui.users.UserFragmentDirections.actionUserFragmentT
 class UserFragment : BaseFragment(R.layout.fragment_user), View.OnClickListener,
     SwipeRefreshLayout.OnRefreshListener {
 
+    private val binding get() = bindingDraft!!
+    private var bindingDraft: FragmentUserBinding? = null
+
     private val adapter by lazy { UserAdapter(viewModel::openDetails) }
-    override val viewModel: UserViewModel by viewModel {
-        App.component.userViewModel
-    }
+    override val viewModel: UserViewModel by viewModel { App.component.userViewModel }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        bindingDraft = FragmentUserBinding.bind(view)
         observeViewModel()
         setupButtons()
         setupRecyclerView()
@@ -33,7 +34,7 @@ class UserFragment : BaseFragment(R.layout.fragment_user), View.OnClickListener,
 
     override fun onDestroyView() {
         super.onDestroyView()
-        btnInfo.setOnClickListener(null)
+        binding.btnInfo.setOnClickListener(null)
         viewModel.details.removeObservers(viewLifecycleOwner)
         viewModel.user.removeObservers(viewLifecycleOwner)
         viewModel.error.removeObservers(viewLifecycleOwner)
@@ -53,18 +54,18 @@ class UserFragment : BaseFragment(R.layout.fragment_user), View.OnClickListener,
     }
 
     private fun setupButtons() {
-        btnInfo.setOnClickListener(this)
+        binding.btnInfo.setOnClickListener(this)
     }
 
     private fun setupSwipeToRefresh() {
-        laySwipeToRefresh.setColorSchemeResources(R.color.colorPrimary, R.color.colorPrimaryDark)
-        laySwipeToRefresh.setOnRefreshListener(this)
+        binding.laySwipeToRefresh.setColorSchemeResources(R.color.colorPrimary, R.color.colorPrimaryDark)
+        binding.laySwipeToRefresh.setOnRefreshListener(this)
     }
 
     private fun setupRecyclerView() {
         val margin = resources.getDimensionPixelSize(R.dimen.base_margin)
-        rvShipments.adapter = adapter
-        rvShipments.addItemDecoration(LinearLayoutDecoration(margin))
+        binding.rvUsers.adapter = adapter
+        binding.rvUsers.addItemDecoration(LinearLayoutDecoration(margin))
     }
 
     private fun showInfoDialog() {
@@ -99,8 +100,8 @@ class UserFragment : BaseFragment(R.layout.fragment_user), View.OnClickListener,
         viewModel.error.observe(
             viewLifecycleOwner,
             EventObserver {
-                laySwipeToRefresh.isRefreshing = false
-                snackbar(container, it.message())
+                binding.laySwipeToRefresh.isRefreshing = false
+                snackbar(binding.root, it.message())
             })
     }
 }
