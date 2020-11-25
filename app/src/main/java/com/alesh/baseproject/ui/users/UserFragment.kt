@@ -13,14 +13,13 @@ import com.alesh.baseproject.util.decoration.LinearLayoutDecoration
 import com.alesh.baseproject.util.error.message
 import com.alesh.baseproject.util.livedata.EventObserver
 import com.alesh.baseproject.util.viewModel
-import kotlinx.android.synthetic.main.fragment_user.*
 import com.alesh.baseproject.ui.users.UserFragmentDirections.actionUserFragmentToUserDetailsFragment as actionDetails
 
 class UserFragment : BaseFragment(), View.OnClickListener,
     SwipeRefreshLayout.OnRefreshListener {
 
     private val adapter by lazy { UserAdapter(viewModel::openDetails) }
-    private val viewModel: UserViewModel by viewModel {
+    override val viewModel: UserViewModel by viewModel {
         App.component.userViewModel
     }
 
@@ -87,7 +86,8 @@ class UserFragment : BaseFragment(), View.OnClickListener,
         }
     }
 
-    private fun observeViewModel() {
+    override fun observeViewModel() {
+        super.observeViewModel()
 
         viewModel.details.observe(
             viewLifecycleOwner,
@@ -107,13 +107,6 @@ class UserFragment : BaseFragment(), View.OnClickListener,
             EventObserver {
                 laySwipeToRefresh.isRefreshing = false
                 snackbar(container, it.message())
-            })
-
-        viewModel.loading.observe(
-            viewLifecycleOwner,
-            EventObserver {
-                // laySwipeToRefresh.isRefreshing = it
-                showLoading(it)
             })
     }
 }

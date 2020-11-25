@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
 import com.afollestad.materialdialogs.MaterialDialog
+import com.alesh.baseproject.util.livedata.EventObserver
 import com.alesh.baseproject.util.view.buildLoadingDialog
 import com.alesh.baseproject.util.view.dialogBuilder
 import com.alesh.baseproject.util.view.hideKeyboard
@@ -16,8 +17,9 @@ import com.alesh.baseproject.util.view.onBackPressedListener
 import com.alesh.baseproject.util.view.snackbar
 import com.alesh.baseproject.util.view.toast
 
-open class BaseFragment : Fragment() {
+abstract class BaseFragment : Fragment() {
 
+    abstract val viewModel: BaseViewModel
     private var loadingDialog: Dialog? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,6 +30,15 @@ open class BaseFragment : Fragment() {
     override fun onStop() {
         super.onStop()
         hideKeyboard()
+    }
+
+    open fun observeViewModel() {
+
+        viewModel.loading.observe(
+            viewLifecycleOwner,
+            EventObserver {
+                showLoading(it)
+            })
     }
 
     /* Messages */
