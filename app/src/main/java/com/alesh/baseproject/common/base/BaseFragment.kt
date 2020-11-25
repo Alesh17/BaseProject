@@ -4,6 +4,7 @@ import android.app.Dialog
 import android.os.Bundle
 import android.view.View
 import androidx.annotation.IdRes
+import androidx.annotation.LayoutRes
 import androidx.annotation.StringRes
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavDirections
@@ -17,7 +18,7 @@ import com.alesh.baseproject.util.view.onBackPressedListener
 import com.alesh.baseproject.util.view.snackbar
 import com.alesh.baseproject.util.view.toast
 
-abstract class BaseFragment : Fragment() {
+abstract class BaseFragment(@LayoutRes layoutId: Int) : Fragment(layoutId) {
 
     abstract val viewModel: BaseViewModel
     private var loadingDialog: Dialog? = null

@@ -3,6 +3,7 @@ package com.alesh.baseproject.di.components
 import android.app.Application
 import com.alesh.baseproject.di.module.ApiModule
 import com.alesh.baseproject.di.module.RepositoriesModule
+import com.alesh.baseproject.ui.details.UserDetailsViewModel
 import com.alesh.baseproject.ui.users.UserViewModel
 import dagger.BindsInstance
 import dagger.Component
@@ -18,4 +19,5 @@ interface AppComponent {
     }
 
     val userViewModel: UserViewModel
+    val userDetailsViewModel: UserDetailsViewModel
 }

@@ -16,19 +16,19 @@ class UserViewModel @Inject constructor(
 ) : BaseViewModel() {
 
     val details = MutableLiveData<Event<User>>()
-    val shipments = MutableLiveData<Event<List<User>>>()
+    val user = MutableLiveData<Event<List<User>>>()
 
     fun getUsers() {
         viewModelScope.launch {
             loading.start()
             interactor.getUsers()
-                .onSuccess { shipments.postValue(Event(it)) }
+                .onSuccess { user.postValue(Event(it)) }
                 .onError { error.postValue(Event(it)) }
             loading.stop()
         }
     }
 
-    fun openDetails(shipmentPosition: Int) {
-        details.value = Event(shipments.value?.peekContent()!![shipmentPosition])
+    fun openDetails(itemPosition: Int) {
+        details.value = Event(user.value?.peekContent()!![itemPosition])
     }
 }

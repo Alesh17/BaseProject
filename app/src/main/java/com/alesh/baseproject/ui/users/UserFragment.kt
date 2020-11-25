@@ -15,7 +15,7 @@ import com.alesh.baseproject.util.livedata.EventObserver
 import com.alesh.baseproject.util.viewModel
 import com.alesh.baseproject.ui.users.UserFragmentDirections.actionUserFragmentToUserDetailsFragment as actionDetails
 
-class UserFragment : BaseFragment(), View.OnClickListener,
+class UserFragment : BaseFragment(R.layout.fragment_user), View.OnClickListener,
     SwipeRefreshLayout.OnRefreshListener {
 
     private val adapter by lazy { UserAdapter(viewModel::openDetails) }
@@ -23,15 +23,9 @@ class UserFragment : BaseFragment(), View.OnClickListener,
         App.component.userViewModel
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View? {
-        observeViewModel()
-        return inflater.inflate(R.layout.fragment_user, container, false)
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        observeViewModel()
         setupButtons()
         setupRecyclerView()
         setupSwipeToRefresh()
@@ -41,7 +35,7 @@ class UserFragment : BaseFragment(), View.OnClickListener,
         super.onDestroyView()
         btnInfo.setOnClickListener(null)
         viewModel.details.removeObservers(viewLifecycleOwner)
-        viewModel.shipments.removeObservers(viewLifecycleOwner)
+        viewModel.user.removeObservers(viewLifecycleOwner)
         viewModel.error.removeObservers(viewLifecycleOwner)
         viewModel.loading.removeObservers(viewLifecycleOwner)
     }
@@ -96,7 +90,7 @@ class UserFragment : BaseFragment(), View.OnClickListener,
                 navigate(action)
             })
 
-        viewModel.shipments.observe(
+        viewModel.user.observe(
             viewLifecycleOwner,
             EventObserver {
                 adapter.submitList(it)

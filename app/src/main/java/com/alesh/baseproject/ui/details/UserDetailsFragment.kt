@@ -1,18 +1,13 @@
 package com.alesh.baseproject.ui.details
 
-import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
+import com.alesh.baseproject.App
 import com.alesh.baseproject.R
+import com.alesh.baseproject.common.base.BaseFragment
+import com.alesh.baseproject.util.viewModel
 
-class UserDetailsFragment : Fragment() {
+class UserDetailsFragment : BaseFragment(R.layout.fragment_user_details) {
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_user_details, container, false)
+    override val viewModel: UserDetailsViewModel by viewModel {
+        App.component.userDetailsViewModel
     }
 }

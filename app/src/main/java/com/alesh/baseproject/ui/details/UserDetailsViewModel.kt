@@ -1,7 +1,7 @@
 package com.alesh.baseproject.ui.details
 
-import androidx.lifecycle.ViewModel
+import com.alesh.baseproject.common.base.BaseViewModel
 
-class UserDetailsViewModel : ViewModel() {
+class UserDetailsViewModel : BaseViewModel() {
 
 }

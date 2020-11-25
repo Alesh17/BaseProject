@@ -17,7 +17,7 @@ class UserAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         return ItemViewHolder(
             LayoutInflater.from(parent.context).inflate(
-                R.layout.view_holder_shipment, parent, false
+                R.layout.view_holder_user, parent, false
             )
         )
     }
