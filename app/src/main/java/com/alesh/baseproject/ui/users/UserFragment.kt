@@ -34,6 +34,7 @@ class UserFragment : BaseFragment(R.layout.fragment_user), View.OnClickListener,
 
     override fun onDestroyView() {
         super.onDestroyView()
+        bindingDraft = null
         binding.btnInfo.setOnClickListener(null)
         viewModel.details.removeObservers(viewLifecycleOwner)
         viewModel.user.removeObservers(viewLifecycleOwner)
