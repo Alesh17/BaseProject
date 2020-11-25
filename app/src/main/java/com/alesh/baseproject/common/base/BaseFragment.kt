@@ -1,3 +1,5 @@
+@file:Suppress("MemberVisibilityCanBePrivate")
+
 package com.alesh.baseproject.common.base
 
 import android.app.Dialog
@@ -21,6 +23,7 @@ import com.alesh.baseproject.util.view.toast
 abstract class BaseFragment(@LayoutRes layoutId: Int) : Fragment(layoutId) {
 
     abstract val viewModel: BaseViewModel
+
     private var loadingDialog: Dialog? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {

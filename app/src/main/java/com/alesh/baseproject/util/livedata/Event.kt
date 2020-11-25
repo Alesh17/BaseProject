@@ -7,8 +7,9 @@ import androidx.lifecycle.Observer
  */
 open class Event<out T>(private val content: T) {
 
+    /** Allow external read but not write */
     var hasBeenHandled = false
-        private set // Allow external read but not write
+        private set
 
     /**
      * Returns the content and prevents its use again.

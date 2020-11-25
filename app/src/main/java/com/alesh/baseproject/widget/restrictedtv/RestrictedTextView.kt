@@ -19,14 +19,8 @@ class RestrictedTextView(
     }
 
     private fun setupAttributes(attrs: AttributeSet?) {
-
-        val typedArray = context.theme.obtainStyledAttributes(
-            attrs, R.styleable.RestrictedTextView,
-            0, 0
-        )
-
-        widthPercent =
-            typedArray.getFloat(R.styleable.RestrictedTextView_rtv_max_width_percent, 1.0f)
+        val typedArray = context.theme.obtainStyledAttributes(attrs, R.styleable.RestrictedTextView, 0, 0)
+        widthPercent = typedArray.getFloat(R.styleable.RestrictedTextView_rtv_max_width_percent, 1.0f)
         typedArray.recycle()
     }
 

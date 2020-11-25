@@ -1,4 +1,4 @@
-include ':domain'
-include ':data'
-include ':app'
 rootProject.name = "BaseProject"
+include ':app'
+include ':data'
+include ':domain'

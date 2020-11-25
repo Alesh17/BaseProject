@@ -9,10 +9,10 @@ class GridLayoutDecorator(
     private val marginInPx: Int
 ) : RecyclerView.ItemDecoration() {
 
-    override fun getItemOffsets(
-        outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State
-    ) {
+    override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
+
         with(outRect) {
+
             val position: Int = parent.getChildAdapterPosition(view)
             val column: Int = position % columns
 

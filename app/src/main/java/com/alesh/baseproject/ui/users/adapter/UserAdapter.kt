@@ -23,7 +23,6 @@ class UserAdapter(
     }
 
     inner class ItemViewHolder(private val binding: Binding) : RecyclerView.ViewHolder(binding.root) {
-
         fun bind(item: User, position: Int) = with(itemView) {
             binding.tvFirstName.text = item.firstName
             binding.tvLastName.text = item.lastName
@@ -32,11 +31,7 @@ class UserAdapter(
     }
 
     class DiffCallback : DiffUtil.ItemCallback<User>() {
-        override fun areItemsTheSame(oldItem: User, newItem: User): Boolean =
-            oldItem.id == newItem.id
-
-        override fun areContentsTheSame(oldItem: User, newItem: User): Boolean =
-            oldItem == newItem
+        override fun areItemsTheSame(oldItem: User, newItem: User): Boolean = oldItem.id == newItem.id
+        override fun areContentsTheSame(oldItem: User, newItem: User): Boolean = oldItem == newItem
     }
 }
-
