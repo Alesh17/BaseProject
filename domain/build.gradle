@@ -30,9 +30,6 @@ android {
 
 dependencies {
 
-    // Kotlin stdlib
-    implementation globalDependencies.stdlib
-
     // AndroidX dependencies
     implementation globalDependencies.coreKtx
 
