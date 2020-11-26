@@ -42,6 +42,30 @@ class UserFragment : BaseFragment(R.layout.fragment_user), View.OnClickListener,
         viewModel.loading.removeObservers(viewLifecycleOwner)
     }
 
+    override fun observeViewModel() {
+        super.observeViewModel()
+
+        viewModel.details.observe(
+            viewLifecycleOwner,
+            EventObserver {
+                val action = actionDetails(it)
+                navigate(action)
+            })
+
+        viewModel.user.observe(
+            viewLifecycleOwner,
+            EventObserver {
+                adapter.submitList(it)
+            })
+
+        viewModel.error.observe(
+            viewLifecycleOwner,
+            EventObserver {
+                binding.laySwipeToRefresh.isRefreshing = false
+                snackbar(binding.root, it.message())
+            })
+    }
+
     override fun onRefresh() {
         viewModel.getUsers()
     }
@@ -80,29 +104,5 @@ class UserFragment : BaseFragment(R.layout.fragment_user), View.OnClickListener,
             negativeButton(R.string.cancel) { this.hide() }
             show()
         }
-    }
-
-    override fun observeViewModel() {
-        super.observeViewModel()
-
-        viewModel.details.observe(
-            viewLifecycleOwner,
-            EventObserver {
-                val action = actionDetails(it)
-                navigate(action)
-            })
-
-        viewModel.user.observe(
-            viewLifecycleOwner,
-            EventObserver {
-                adapter.submitList(it)
-            })
-
-        viewModel.error.observe(
-            viewLifecycleOwner,
-            EventObserver {
-                binding.laySwipeToRefresh.isRefreshing = false
-                snackbar(binding.root, it.message())
-            })
     }
 }

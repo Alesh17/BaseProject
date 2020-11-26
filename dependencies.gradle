@@ -4,8 +4,8 @@
 
 def libraryVersions = [
 
-        gradleVersion                : '4.0.1',
-        kotlinVersion                : '1.4.20',
+        androidGradlePluginVersion   : '4.0.1',
+        kotlinGradlePluginVersion    : '1.4.20',
 
         coreKtxVersion               : '1.3.2',
         constraintLayoutVersion      : '2.0.0',
@@ -40,8 +40,8 @@ ext {
 
     globalDependencies = [
 
-            buildGradle             : "com.android.tools.build:gradle:${libraryVersions.gradleVersion}",
-            kotlinGradlePlugin      : "org.jetbrains.kotlin:kotlin-gradle-plugin:${libraryVersions.kotlinVersion}",
+            androidGradlePlugin     : "com.android.tools.build:gradle:${libraryVersions.androidGradlePluginVersion}",
+            kotlinGradlePlugin      : "org.jetbrains.kotlin:kotlin-gradle-plugin:${libraryVersions.kotlinGradlePluginVersion}",
             navigationSafeArgsPlugin: "androidx.navigation:navigation-safe-args-gradle-plugin:${libraryVersions.navigationVersion}",
             constraintLayout        : "androidx.constraintlayout:constraintlayout:${libraryVersions.constraintLayoutVersion}",
             stdlib                  : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${libraryVersions.kotlinVersion}",

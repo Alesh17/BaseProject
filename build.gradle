@@ -9,7 +9,7 @@ buildscript {
     }
 
     dependencies {
-        classpath globalDependencies.buildGradle
+        classpath globalDependencies.androidGradlePlugin
         classpath globalDependencies.kotlinGradlePlugin
         classpath globalDependencies.navigationSafeArgsPlugin
     }
