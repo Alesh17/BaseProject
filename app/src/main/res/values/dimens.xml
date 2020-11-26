@@ -2,7 +2,8 @@
 <resources>
 
     <!-- Common -->
-    <dimen name="base_margin">8dp</dimen>
+    <dimen name="base_margin">16dp</dimen>
+    <dimen name="base_padding">8dp</dimen>
     <dimen name="recycler_padding">24dp</dimen>
     <dimen name="cornerRadius">12dp</dimen>
     <dimen name="elevation">0dp</dimen>
