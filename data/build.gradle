@@ -44,9 +44,6 @@ dependencies {
     // Gson
     implementation dataDependencies.gson
 
-    // Library for EncryptedSharedPreferences
-    implementation dataDependencies.securityCryptoVersion
-
     // Retrofit2
     api dataDependencies.retrofit
     api dataDependencies.retrofitConverterGson
@@ -54,4 +51,7 @@ dependencies {
     // OkHttp3
     api dataDependencies.okHttp
     api dataDependencies.okHttpLoggingInterceptor
+
+    // Library for EncryptedSharedPreferences
+    implementation dataDependencies.securityCrypto
 }

@@ -43,10 +43,7 @@ ext {
             androidGradlePlugin     : "com.android.tools.build:gradle:${libraryVersions.androidGradlePluginVersion}",
             kotlinGradlePlugin      : "org.jetbrains.kotlin:kotlin-gradle-plugin:${libraryVersions.kotlinGradlePluginVersion}",
             navigationSafeArgsPlugin: "androidx.navigation:navigation-safe-args-gradle-plugin:${libraryVersions.navigationVersion}",
-            constraintLayout        : "androidx.constraintlayout:constraintlayout:${libraryVersions.constraintLayoutVersion}",
-            stdlib                  : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${libraryVersions.kotlinVersion}",
             coreKtx                 : "androidx.core:core-ktx:${libraryVersions.coreKtxVersion}",
-            material                : "com.google.android.material:material:${libraryVersions.materialVersion}"
     ]
 
     /**
@@ -55,6 +52,7 @@ ext {
 
     appDependencies = [
 
+            constraintLayout        : "androidx.constraintlayout:constraintlayout:${libraryVersions.constraintLayoutVersion}",
             lifecycleExtensions     : "androidx.lifecycle:lifecycle-extensions:${libraryVersions.lifecycleExtensionsVersion}",
             lifecycleViewmodelKtx   : "androidx.lifecycle:lifecycle-viewmodel-ktx:${libraryVersions.lifecycleViewModelKtxVersion}",
             legacySupportV4         : "androidx.legacy:legacy-support-v4:${libraryVersions.legacySupportVersion}",
@@ -63,6 +61,7 @@ ext {
             navigationUiKtx         : "androidx.navigation:navigation-ui-ktx:${libraryVersions.navigationVersion}",
             activityKtx             : "androidx.activity:activity-ktx:${libraryVersions.ktxActivityVersion}",
             fragmentKtx             : "androidx.fragment:fragment-ktx:${libraryVersions.ktxFragmentVersion}",
+            material                : "com.google.android.material:material:${libraryVersions.materialVersion}",
             materialDialogsCore     : "com.afollestad.material-dialogs:core:${libraryVersions.materialDialogs}",
             materialDialogsLifecycle: "com.afollestad.material-dialogs:lifecycle:${libraryVersions.materialDialogs}",
 
@@ -82,7 +81,7 @@ ext {
             okHttp                  : "com.squareup.okhttp3:okhttp:${libraryVersions.okHttpVersion}",
             okHttpLoggingInterceptor: "com.squareup.okhttp3:logging-interceptor:${libraryVersions.okHttpVersion}",
 
-            securityCryptoVersion   : "androidx.security:security-crypto:${libraryVersions.securityCryptoVersion}"
+            securityCrypto   : "androidx.security:security-crypto:${libraryVersions.securityCryptoVersion}"
     ]
 
     /**

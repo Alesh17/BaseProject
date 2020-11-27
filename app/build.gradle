@@ -44,12 +44,8 @@ dependencies {
     // Data layer
     implementation project(path: ':data')
 
-    // DI
-    implementation appDependencies.dagger
-    kapt appDependencies.daggerCompiler
-
-    // AndroidX dependencies
-    implementation globalDependencies.constraintLayout
+    // Common
+    implementation appDependencies.constraintLayout
     implementation appDependencies.lifecycleExtensions
     implementation appDependencies.lifecycleViewmodelKtx
     implementation appDependencies.legacySupportV4
@@ -59,10 +55,14 @@ dependencies {
     implementation appDependencies.activityKtx
     implementation appDependencies.fragmentKtx
 
+    // Material design system
+    implementation appDependencies.material
+
     // Material dialogs
     implementation appDependencies.materialDialogsCore
     implementation appDependencies.materialDialogsLifecycle
 
-    // Material design system
-    implementation globalDependencies.material
+    // DI
+    implementation appDependencies.dagger
+    kapt appDependencies.daggerCompiler
 }

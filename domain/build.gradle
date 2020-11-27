@@ -30,7 +30,7 @@ android {
 
 dependencies {
 
-    // AndroidX dependencies
+    // Common
     implementation globalDependencies.coreKtx
 
     // Kotlin Coroutines
