@@ -22,6 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/base_margin"
+        android:scaleType="matrix"
         app:layout_constraintBottom_toTopOf="@+id/sbScale"
         app:layout_constraintEnd_toEndOf="@id/btnInfo"
         app:layout_constraintStart_toStartOf="@id/btnInfo"

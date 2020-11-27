@@ -1,7 +1,9 @@
 package com.alesh.baseproject.ui.users
 
+import android.graphics.Matrix
 import android.os.Bundle
 import android.view.View
+import android.widget.SeekBar
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.alesh.baseproject.App
 import com.alesh.baseproject.R
@@ -12,6 +14,7 @@ import com.alesh.baseproject.util.decoration.LinearLayoutDecoration
 import com.alesh.baseproject.util.error.message
 import com.alesh.baseproject.util.livedata.EventObserver
 import com.alesh.baseproject.util.viewModel
+import com.alesh.domain.util.log
 import com.alesh.baseproject.ui.users.UserFragmentDirections.actionUserFragmentToUserDetailsFragment as actionDetails
 
 class UserFragment : BaseFragment(R.layout.fragment_user), View.OnClickListener,
@@ -23,9 +26,12 @@ class UserFragment : BaseFragment(R.layout.fragment_user), View.OnClickListener,
     private val adapter by lazy { UserAdapter(viewModel::openDetails) }
     override val viewModel by viewModel { App.component.userViewModel }
 
+    private val matrix = Matrix()
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         bindingDraft = FragmentUserBinding.bind(view)
+        scaleType()
         setupButtons()
         observeViewModel()
         setupRecyclerView()
@@ -76,6 +82,18 @@ class UserFragment : BaseFragment(R.layout.fragment_user), View.OnClickListener,
                 showInfoDialog()
             }
         }
+    }
+
+    private fun scaleType() {
+        binding.sbScale.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+            override fun onStartTrackingTouch(seekBar: SeekBar) {}
+            override fun onStopTrackingTouch(seekBar: SeekBar) {}
+            override fun onProgressChanged(seekBar: SeekBar, i: Int, b: Boolean) {
+                val scale = (i.toFloat() / 50) - 1.toFloat()
+                matrix.setScale(scale, 1.toFloat())
+                binding.ivPinguin.imageMatrix = matrix
+            }
+        })
     }
 
     private fun setupButtons() {
