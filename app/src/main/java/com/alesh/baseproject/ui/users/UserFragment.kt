@@ -1,7 +1,9 @@
 package com.alesh.baseproject.ui.users
 
+import android.Manifest.permission.ACCESS_FINE_LOCATION
 import android.os.Bundle
 import android.view.View
+import androidx.activity.result.contract.ActivityResultContracts.RequestPermission
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.alesh.baseproject.App
 import com.alesh.baseproject.R
@@ -22,6 +24,11 @@ class UserFragment : BaseFragment(R.layout.fragment_user), View.OnClickListener,
 
     private val adapter by lazy { UserAdapter(viewModel::openDetails) }
     override val viewModel by viewModel { App.component.userViewModel }
+
+    private val askPermission = registerForActivityResult(RequestPermission()) { result ->
+        if (result) toast(R.string.ok)
+        else toast(R.string.cancel)
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -74,6 +81,7 @@ class UserFragment : BaseFragment(R.layout.fragment_user), View.OnClickListener,
         when (view?.id) {
             R.id.btnInfo -> {
                 showInfoDialog()
+                askPermission.launch(ACCESS_FINE_LOCATION)
             }
         }
     }
