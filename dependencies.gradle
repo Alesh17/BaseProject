@@ -81,7 +81,7 @@ ext {
             okHttp                  : "com.squareup.okhttp3:okhttp:${libraryVersions.okHttpVersion}",
             okHttpLoggingInterceptor: "com.squareup.okhttp3:logging-interceptor:${libraryVersions.okHttpVersion}",
 
-            securityCrypto   : "androidx.security:security-crypto:${libraryVersions.securityCryptoVersion}"
+            securityCrypto          : "androidx.security:security-crypto:${libraryVersions.securityCryptoVersion}"
     ]
 
     /**
