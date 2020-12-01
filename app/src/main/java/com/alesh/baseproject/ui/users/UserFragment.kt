@@ -14,7 +14,6 @@ import com.alesh.baseproject.util.decoration.LinearLayoutDecoration
 import com.alesh.baseproject.util.error.message
 import com.alesh.baseproject.util.livedata.EventObserver
 import com.alesh.baseproject.util.viewModel
-import com.alesh.domain.util.log
 import com.alesh.baseproject.ui.users.UserFragmentDirections.actionUserFragmentToUserDetailsFragment as actionDetails
 
 class UserFragment : BaseFragment(R.layout.fragment_user), View.OnClickListener,
