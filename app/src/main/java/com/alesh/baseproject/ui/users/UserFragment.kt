@@ -36,9 +36,7 @@ class UserFragment : BaseFragment(R.layout.fragment_user), View.OnClickListener,
 
     /**
      * ActivityResultContract implementations available now:
-     * StartActivityForResult, RequestPermission, RequestMultiplePermissions,
-     * TakePicturePreview, TakePicture (and save to storage), TakeVideo, GetContent, GetMultipleContents,
-     * PickContact, CreateDocument, OpenDocument, OpenMultipleDocuments, OpenDocumentTree.
+     * https://developer.android.com/reference/androidx/activity/result/contract/ActivityResultContracts
      * */
     private val takePicture = registerForActivityResult(TakePicturePreview()) { bitmap ->
         binding.imageView.setImageBitmap(bitmap)
