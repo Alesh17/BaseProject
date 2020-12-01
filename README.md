@@ -17,4 +17,4 @@ This way you don`t need to repeat the same code in different parts of your proje
 
 ### Features inside
 
-* Branch 'activity_result_contracts' contains new ActivityResultContracts samples
+* Branch `activity_result_contracts` contains new ActivityResultContracts samples
