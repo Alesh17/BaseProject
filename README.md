@@ -14,3 +14,7 @@ This way you don`t need to repeat the same code in different parts of your proje
 
 * [Rename](https://gist.github.com/Alesh17/9c7dbbf0e894f601ac7a7af458ac7402) project 🤘
 * Will be avaible later...
+
+### Features inside
+
+* Branch 'activity_result_contracts' contains new ActivityResultContracts samples
