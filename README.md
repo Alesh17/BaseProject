@@ -18,3 +18,5 @@ This way you don`t need to repeat the same code in different parts of your proje
 ### Features inside
 
 * Branch `activity_result_contracts` contains new ActivityResultContracts samples. [Explanatory picture](https://miro.medium.com/max/1000/1*UJoM9lj5GYKaE4kt3hvV9Q.png) and [docs](https://developer.android.com/training/basics/intents/result).
+
+* Branch `scale_type` contains ImageView ScaleType matrix samples.
