@@ -7,15 +7,18 @@ import com.alesh.baseproject.R
 
 private var isSecondaryTap: Boolean = false
 
-fun FragmentActivity.onBackPressedListener() {
-    val fragmentActivity = this
-    fragmentActivity.onBackPressedDispatcher.addCallback(this) {
-        if (isSecondaryTap) fragmentActivity.finish()
+fun onBackPressedListener(activity: FragmentActivity) {
+    activity.onBackPressedDispatcher.addCallback(activity) {
+        if (isSecondaryTap) activity.finish()
         else {
-            toast(R.string.tap_to_exit)
-            isSecondaryTap = true
-            Handler().postDelayed({ isSecondaryTap = false }, 1000)
+            activity.toast(R.string.tap_to_exit)
+            handleTaps()
         }
         isEnabled = true
     }
+}
+
+private fun handleTaps() {
+    isSecondaryTap = true
+    Handler().postDelayed({ isSecondaryTap = false }, 1000)
 }

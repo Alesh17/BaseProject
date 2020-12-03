@@ -66,7 +66,7 @@ abstract class BaseFragment(@LayoutRes layoutId: Int) : Fragment(layoutId) {
 
     /* Navigation */
     private fun onBackPressedHandler() {
-        requireActivity().onBackPressedListener()
+        onBackPressedListener(requireActivity())
     }
 
     fun navigate(@IdRes resId: Int) {
