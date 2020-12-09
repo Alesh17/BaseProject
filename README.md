@@ -13,7 +13,7 @@ This way you don`t need to repeat the same code in different parts of your proje
 ### Interestings
 
 * [Rename](https://gist.github.com/Alesh17/9c7dbbf0e894f601ac7a7af458ac7402) project 🤘
-* Will be avaible later...
+* [Clear caches ](https://gist.github.com/Alesh17/26e5eaffe0990798adc2bd2d8fe0ec7a) (without Invalidate & Restart) 🧹
 
 ### Features inside
 
