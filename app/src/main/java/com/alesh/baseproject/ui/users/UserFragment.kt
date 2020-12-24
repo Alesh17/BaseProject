@@ -29,6 +29,8 @@ class UserFragment : BaseFragment(R.layout.fragment_user), View.OnClickListener,
     private val adapter by lazy { UserAdapter(viewModel::openDetails) }
     override val viewModel by viewModel { App.component.userViewModel }
 
+    /* Start */
+
     private val sampleContractRegistration = registerForActivityResult(SampleContract()) { result ->
         if (result != null) toast(R.string.ok)
         else toast(R.string.cancel)
@@ -53,6 +55,8 @@ class UserFragment : BaseFragment(R.layout.fragment_user), View.OnClickListener,
             // entry.value -> true (boolean)
         }
     }
+
+    /* End */
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
