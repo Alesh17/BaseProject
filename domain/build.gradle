@@ -37,6 +37,9 @@ dependencies {
     api domainDependencies.coroutinesCore
     api domainDependencies.coroutinesAndroid
 
+    // LeakCanary
+    debugApi domainDependencies.leakCanary
+
     // Inject annotation support
     api domainDependencies.javaxInject
 }
