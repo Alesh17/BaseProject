@@ -44,4 +44,3 @@ fun SharedPreferences.remove(key: String) {
 fun SharedPreferences.clear() {
     edit().clear().apply()
 }
-
