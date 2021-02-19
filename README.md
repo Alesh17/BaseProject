@@ -17,7 +17,7 @@ This way you don`t need to repeat the same code in different parts of your proje
 
 ### Cognitive
 
-* Awesome pic that displays the entire [collection family](https://raw.githubusercontent.com/Alesh17/BaseProject/master/additional/collections.png)
+* Awesome pic that displays the entire [Collections family](https://raw.githubusercontent.com/Alesh17/BaseProject/master/additional/collections.png).
 
 ### Features inside
 
