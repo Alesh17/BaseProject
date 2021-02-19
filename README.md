@@ -15,6 +15,10 @@ This way you don`t need to repeat the same code in different parts of your proje
 * [Rename](https://gist.github.com/Alesh17/9c7dbbf0e894f601ac7a7af458ac7402) project 🤘
 * [Clear caches ](https://gist.github.com/Alesh17/26e5eaffe0990798adc2bd2d8fe0ec7a) (without Invalidate & Restart) 🧹
 
+### Cognitive
+
+* Awesome pic that displays the entire [collection family](https://raw.githubusercontent.com/Alesh17/BaseProject/master/additional/collections.png)
+
 ### Features inside
 
 * Branch `activity_result_contracts` contains new ActivityResultContracts samples. [Explanatory picture](https://miro.medium.com/max/1000/1*UJoM9lj5GYKaE4kt3hvV9Q.png) and [docs](https://developer.android.com/training/basics/intents/result).
