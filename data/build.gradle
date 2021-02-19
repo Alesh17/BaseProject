@@ -52,6 +52,11 @@ dependencies {
     api dataDependencies.okHttp
     api dataDependencies.okHttpLoggingInterceptor
 
+    // Room
+    implementation dataDependencies.roomRuntime
+    implementation dataDependencies.roomKtx
+    kapt dataDependencies.roomCompiler
+
     // Library for EncryptedSharedPreferences
     implementation dataDependencies.securityCrypto
 }
