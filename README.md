@@ -18,6 +18,10 @@ This way you don`t need to repeat the same code in different parts of your proje
 ### Cognitive
 
 * Awesome pic that displays the entire [Collections family](https://raw.githubusercontent.com/Alesh17/BaseProject/master/additional/collections.png).
+* Great pics for understanding 
+[merge](https://raw.githubusercontent.com/Alesh17/BaseProject/master/additional/git_merge.png) and 
+[rebase](https://raw.githubusercontent.com/Alesh17/BaseProject/master/additional/git_rebase.png). 
+And a good [article](https://www.atlassian.com/ru/git/tutorials/merging-vs-rebasing) to consolidate.
 
 ### Features inside
 
