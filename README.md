@@ -22,7 +22,7 @@ This way you don`t need to repeat the same code in different parts of your proje
 [merge](https://raw.githubusercontent.com/Alesh17/BaseProject/master/additional/git_merge.png) and 
 [rebase](https://raw.githubusercontent.com/Alesh17/BaseProject/master/additional/git_rebase.png). 
 The main difference of rebase: is that it rewrites the history of the project, creating new commits for each commit in the original branch.
-And a good [article](https://www.atlassian.com/ru/git/tutorials/merging-vs-rebasing) to consolidate.
+Good [article](https://www.atlassian.com/ru/git/tutorials/merging-vs-rebasing) to consolidate.
 
 ### Features inside
 
