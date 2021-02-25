@@ -23,6 +23,7 @@ This way you don`t need to repeat the same code in different parts of your proje
 [rebase](https://raw.githubusercontent.com/Alesh17/BaseProject/master/additional/git_rebase.png). 
 The main difference of rebase: is that it rewrites the history of the project, creating new commits for each commit in the original branch.
 Good [article](https://www.atlassian.com/ru/git/tutorials/merging-vs-rebasing) to consolidate.
+* How to [send FCM push from Postman](https://medium.com/android-school/test-fcm-notification-with-postman-f91ba08aacc3).
 
 ### Features inside
 
