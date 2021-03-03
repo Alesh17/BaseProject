@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts.RequestPermission
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import by.kirich1409.viewbindingdelegate.viewBinding
 import com.baseproject.App
 import com.baseproject.R
 import com.baseproject.common.base.BaseFragment
@@ -19,8 +20,7 @@ import com.baseproject.ui.users.UserFragmentDirections.actionUserFragmentToUserD
 class UserFragment : BaseFragment(R.layout.fragment_user), View.OnClickListener,
     SwipeRefreshLayout.OnRefreshListener {
 
-    private val binding get() = bindingDraft!!
-    private var bindingDraft: FragmentUserBinding? = null
+    private val binding by viewBinding(FragmentUserBinding::bind)
 
     private val adapter by lazy { UserAdapter(viewModel::openDetails) }
     override val viewModel by viewModel { App.component.userViewModel }
@@ -32,7 +32,6 @@ class UserFragment : BaseFragment(R.layout.fragment_user), View.OnClickListener,
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        bindingDraft = FragmentUserBinding.bind(view)
         setupButtons()
         observeViewModel()
         setupRecyclerView()
@@ -41,7 +40,6 @@ class UserFragment : BaseFragment(R.layout.fragment_user), View.OnClickListener,
 
     override fun onDestroyView() {
         super.onDestroyView()
-        bindingDraft = null
         binding.btnInfo.setOnClickListener(null)
         viewModel.details.removeObservers(viewLifecycleOwner)
         viewModel.user.removeObservers(viewLifecycleOwner)

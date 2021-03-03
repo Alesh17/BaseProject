@@ -16,6 +16,7 @@ def libraryVersions = [
         materialVersion              : '1.2.1',
         cardViewVersion              : '1.0.0',
         materialDialogs              : '3.2.1',
+        viewBindingPropertyDelegate  : '1.3.1',
 
         architectureComponentsVersion: '2.1.0',
         navigationVersion            : '2.3.1',
@@ -53,21 +54,22 @@ ext {
 
     appDependencies = [
 
-            constraintLayout        : "androidx.constraintlayout:constraintlayout:${libraryVersions.constraintLayoutVersion}",
-            lifecycleExtensions     : "androidx.lifecycle:lifecycle-extensions:${libraryVersions.lifecycleExtensionsVersion}",
-            lifecycleViewmodelKtx   : "androidx.lifecycle:lifecycle-viewmodel-ktx:${libraryVersions.lifecycleViewModelKtxVersion}",
-            legacySupportV4         : "androidx.legacy:legacy-support-v4:${libraryVersions.legacySupportVersion}",
-            cardView                : "androidx.cardview:cardview:${libraryVersions.cardViewVersion}",
-            navigationFragmentKtx   : "androidx.navigation:navigation-fragment-ktx:${libraryVersions.navigationVersion}",
-            navigationUiKtx         : "androidx.navigation:navigation-ui-ktx:${libraryVersions.navigationVersion}",
-            activityKtx             : "androidx.activity:activity-ktx:${libraryVersions.ktxActivityVersion}",
-            fragmentKtx             : "androidx.fragment:fragment-ktx:${libraryVersions.ktxFragmentVersion}",
-            material                : "com.google.android.material:material:${libraryVersions.materialVersion}",
-            materialDialogsCore     : "com.afollestad.material-dialogs:core:${libraryVersions.materialDialogs}",
-            materialDialogsLifecycle: "com.afollestad.material-dialogs:lifecycle:${libraryVersions.materialDialogs}",
+            constraintLayout           : "androidx.constraintlayout:constraintlayout:${libraryVersions.constraintLayoutVersion}",
+            lifecycleExtensions        : "androidx.lifecycle:lifecycle-extensions:${libraryVersions.lifecycleExtensionsVersion}",
+            lifecycleViewmodelKtx      : "androidx.lifecycle:lifecycle-viewmodel-ktx:${libraryVersions.lifecycleViewModelKtxVersion}",
+            legacySupportV4            : "androidx.legacy:legacy-support-v4:${libraryVersions.legacySupportVersion}",
+            cardView                   : "androidx.cardview:cardview:${libraryVersions.cardViewVersion}",
+            navigationFragmentKtx      : "androidx.navigation:navigation-fragment-ktx:${libraryVersions.navigationVersion}",
+            navigationUiKtx            : "androidx.navigation:navigation-ui-ktx:${libraryVersions.navigationVersion}",
+            activityKtx                : "androidx.activity:activity-ktx:${libraryVersions.ktxActivityVersion}",
+            fragmentKtx                : "androidx.fragment:fragment-ktx:${libraryVersions.ktxFragmentVersion}",
+            material                   : "com.google.android.material:material:${libraryVersions.materialVersion}",
+            materialDialogsCore        : "com.afollestad.material-dialogs:core:${libraryVersions.materialDialogs}",
+            materialDialogsLifecycle   : "com.afollestad.material-dialogs:lifecycle:${libraryVersions.materialDialogs}",
+            viewBindingPropertyDelegate: "com.kirich1409.viewbindingpropertydelegate:vbpd-noreflection:${libraryVersions.viewBindingPropertyDelegate}",
 
-            dagger                  : "com.google.dagger:dagger:${libraryVersions.daggerVersion}",
-            daggerCompiler          : "com.google.dagger:dagger-compiler:${libraryVersions.daggerVersion}"
+            dagger                     : "com.google.dagger:dagger:${libraryVersions.daggerVersion}",
+            daggerCompiler             : "com.google.dagger:dagger-compiler:${libraryVersions.daggerVersion}"
     ]
 
     /**
