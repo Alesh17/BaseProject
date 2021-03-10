@@ -5,6 +5,7 @@ apply plugin: "androidx.navigation.safeargs"
 
 android {
 
+    flavorDimensions "mode"
     compileSdkVersion globalConfig.compileSdkVersion
     buildToolsVersion globalConfig.buildToolsVersion
 
@@ -16,12 +17,34 @@ android {
         versionName appConfig.versionName
     }
 
+    signingConfigs {
+        release {
+            keyAlias appConfig.keyAlias
+            keyPassword appConfig.keyPassword
+            storeFile appConfig.storeFile
+            storePassword appConfig.storePassword
+        }
+    }
+
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
+            shrinkResources true
+            signingConfig signingConfigs.release
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         debug {
+            debuggable true
+            minifyEnabled false
+            shrinkResources false
+            applicationIdSuffix ".debug"
+        }
+    }
+
+    productFlavors {
+        production {}
+        development {
+            resConfigs "en", "xxhdpi"
         }
     }
 
@@ -42,7 +65,7 @@ android {
 dependencies {
 
     // Data layer
-    implementation project(path: ':data')
+    implementation globalDependencies.layerData
 
     // Common
     implementation appDependencies.constraintLayout

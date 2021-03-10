@@ -2,11 +2,9 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 
-def keysProperties = new Properties()
-keysProperties.load(new FileInputStream(rootProject.file("keys.properties")))
-
 android {
 
+    flavorDimensions "mode"
     compileSdkVersion globalConfig.compileSdkVersion
     buildToolsVersion globalConfig.buildToolsVersion
 
@@ -17,12 +15,21 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
-            buildConfigField("String", "BASE_URL", '"' + dataConfig.baseUrl + '"')
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         debug {
-            buildConfigField("String", "BASE_URL", '"' + dataConfig.baseUrl + '"')
-            buildConfigField("String", "ACCESS_TOKEN", '"' + keysProperties['accessToken'] + '"')
+            debuggable true
+            minifyEnabled false
+        }
+    }
+
+    productFlavors {
+        production {
+            buildConfigField("String", "BASE_URL", '"' + dataConfig.prodUrl + '"')
+        }
+        development {
+            buildConfigField("String", "BASE_URL", '"' + dataConfig.devUrl + '"')
         }
     }
 
@@ -39,7 +46,7 @@ android {
 dependencies {
 
     // Domain layer
-    api project(path: ':domain')
+    api globalDependencies.layerDomain
 
     // Gson
     implementation dataDependencies.gson
