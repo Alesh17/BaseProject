@@ -42,6 +42,9 @@ ext {
 
     globalDependencies = [
 
+            layerData               : project(":data"),
+            layerDomain             : project(":domain"),
+
             androidGradlePlugin     : "com.android.tools.build:gradle:${libraryVersions.androidGradlePluginVersion}",
             kotlinGradlePlugin      : "org.jetbrains.kotlin:kotlin-gradle-plugin:${libraryVersions.kotlinGradlePluginVersion}",
             navigationSafeArgsPlugin: "androidx.navigation:navigation-safe-args-gradle-plugin:${libraryVersions.navigationVersion}",

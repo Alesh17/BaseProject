@@ -8,6 +8,9 @@ ext {
      * Common configuration for all project
      */
 
+    def keysProperties = new Properties()
+    keysProperties.load(new FileInputStream(rootProject.file("keys.properties")))
+
     globalConfig = [
             compileSdkVersion: 29,
             minSdkVersion    : 21,
@@ -28,7 +31,12 @@ ext {
             applicationId: 'com.baseproject',
 
             versionCode  : generateVersionCode(appVersionMajor, appVersionMinor, appVersionPatch),
-            versionName  : generateVersionName(appVersionMajor, appVersionMinor, appVersionPatch)
+            versionName  : generateVersionName(appVersionMajor, appVersionMinor, appVersionPatch),
+
+            keyAlias     : keysProperties['keyAlias'],
+            keyPassword  : keysProperties['keyPassword'],
+            storeFile    : file(keysProperties['storeFile']),
+            storePassword: keysProperties['storePassword']
     ]
 
     /**
@@ -36,7 +44,8 @@ ext {
      */
 
     dataConfig = [
-            baseUrl: "http://example.com"
+            devUrl     : "http://development.com",
+            prodUrl    : "http://production.com",
     ]
 
     /**
