@@ -14,6 +14,7 @@ import com.baseproject.ui.users.adapter.UserAdapter
 import com.baseproject.util.decoration.LinearLayoutDecoration
 import com.baseproject.util.error.message
 import com.baseproject.util.livedata.EventObserver
+import com.baseproject.util.view.addSystemWindowInsetToMargin
 import com.baseproject.util.viewModel
 import com.baseproject.ui.users.UserFragmentDirections.actionUserFragmentToUserDetailsFragment as actionDetails
 
@@ -36,6 +37,10 @@ class UserFragment : BaseFragment(R.layout.fragment_user), View.OnClickListener,
         observeViewModel()
         setupRecyclerView()
         setupSwipeToRefresh()
+    }
+
+    override fun setupInsets() {
+        binding.btnInfo.addSystemWindowInsetToMargin(top = true)
     }
 
     override fun onDestroyView() {
@@ -94,7 +99,7 @@ class UserFragment : BaseFragment(R.layout.fragment_user), View.OnClickListener,
     }
 
     private fun setupRecyclerView() {
-        val margin = resources.getDimensionPixelSize(R.dimen.base_margin)
+        val margin = resources.getDimensionPixelSize(R.dimen.common_offset_vertical_s)
         binding.rvUsers.adapter = adapter
         binding.rvUsers.addItemDecoration(LinearLayoutDecoration(margin))
     }

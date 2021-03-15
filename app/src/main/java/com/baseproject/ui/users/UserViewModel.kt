@@ -8,7 +8,6 @@ import com.baseproject.domain.model.dto.User
 import com.baseproject.domain.model.result.onError
 import com.baseproject.domain.model.result.onSuccess
 import com.baseproject.util.livedata.Event
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class UserViewModel @Inject constructor(
@@ -19,12 +18,10 @@ class UserViewModel @Inject constructor(
     val user = MutableLiveData<Event<List<User>>>()
 
     fun getUsers() {
-        viewModelScope.launch {
-            loading.start()
+        viewModelScope.launchWithLoading {
             interactor.getUsers()
                 .onSuccess { user.postValue(Event(it)) }
                 .onError { error.postValue(Event(it)) }
-            loading.stop()
         }
     }
 

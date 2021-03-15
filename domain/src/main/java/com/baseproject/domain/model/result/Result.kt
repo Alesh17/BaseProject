@@ -12,6 +12,25 @@ sealed class Result<out T> {
 }
 
 /**
+ * Converts the given value [T] to a result [Result.Success].
+ */
+fun <T> T.toSuccess() = Result.Success(this)
+
+/**
+ * Converts the given value [ApplicationError] to a result [Result.Error].
+ */
+fun ApplicationError.toError() = Result.Error(this)
+
+/**
+ * Returns the encapsulated value if this instance represents [Result.Success] or throw
+ * ClassCastException if it is [Result.Error].
+ */
+fun <T> Result<T>.getOrException(): T {
+    val success = this as Result.Success
+    return success.value
+}
+
+/**
  * Returns the encapsulated result of the given [transform] function applied to the encapsulated value
  * if this instance represents [Result.Success] or the original encapsulated [ApplicationError] value
  * if it is [Result.Error].

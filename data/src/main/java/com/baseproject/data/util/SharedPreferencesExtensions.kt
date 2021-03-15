@@ -3,6 +3,8 @@
 package com.baseproject.data.util
 
 import android.content.SharedPreferences
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 
 inline fun <reified T> SharedPreferences.get(key: String, defaultValue: T): T {
     when (T::class) {
@@ -37,11 +39,22 @@ inline fun <reified T> SharedPreferences.put(key: String, value: T) {
     editor.apply()
 }
 
-fun SharedPreferences.remove(key: String) {
-    edit().remove(key).apply()
-}
+fun SharedPreferences.remove(key: String) = edit().remove(key).apply()
 
-fun SharedPreferences.clear() {
-    edit().clear().apply()
-}
+fun SharedPreferences.clear() = edit().clear().apply()
 
+/* Async versions of extensions */
+
+suspend inline fun <reified T> SharedPreferences.getAsync(key: String, defaultValue: T): T =
+    withContext(Dispatchers.IO) {
+        get(key, defaultValue)
+    }
+
+suspend inline fun <reified T> SharedPreferences.putAsync(key: String, value: T) =
+    withContext(Dispatchers.IO) {
+        put(key, value)
+    }
+
+suspend fun SharedPreferences.removeAsync(key: String) = withContext(Dispatchers.IO) { remove(key) }
+
+suspend fun SharedPreferences.clearAsync() = withContext(Dispatchers.IO) { clear() }

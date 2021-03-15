@@ -45,6 +45,6 @@ dependencies {
     // LeakCanary
     debugApi domainDependencies.leakCanary
 
-    // Inject annotation support
-    api domainDependencies.javaxInject
+    // DI
+    api globalDependencies.dagger
 }

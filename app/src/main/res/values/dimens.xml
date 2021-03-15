@@ -2,13 +2,47 @@
 <resources>
 
     <!-- Common -->
-    <dimen name="base_margin">16dp</dimen>
-    <dimen name="base_padding">8dp</dimen>
-    <dimen name="recycler_padding">24dp</dimen>
-    <dimen name="cornerRadius">12dp</dimen>
-    <dimen name="elevation">0dp</dimen>
 
-    <!-- Loader view -->
+    <dimen name="common_border_offset">@dimen/common_offset_horizontal_m</dimen>
+    <dimen name="common_elevation">0dp</dimen>
+    <dimen name="common_radius">12dp</dimen>
+    <dimen name="common_button_radius">8dp</dimen>
+    <dimen name="common_button_textSize">@dimen/common_textSize_m</dimen>
+    <dimen name="common_button_height">@dimen/common_offset_vertical_4xl</dimen>
+
+    <dimen name="common_offset_horizontal_xxs">4dp</dimen>
+    <dimen name="common_offset_horizontal_xs">8dp</dimen>
+    <dimen name="common_offset_horizontal_s">12dp</dimen>
+    <dimen name="common_offset_horizontal_m">16dp</dimen>
+    <dimen name="common_offset_horizontal_l">20dp</dimen>
+    <dimen name="common_offset_horizontal_xl">24dp</dimen>
+    <dimen name="common_offset_horizontal_2xl">28dp</dimen>
+    <dimen name="common_offset_horizontal_3xl">32dp</dimen>
+    <dimen name="common_offset_horizontal_4xl">40dp</dimen>
+    <dimen name="common_offset_horizontal_5xl">44dp</dimen>
+
+    <dimen name="common_offset_vertical_xxs">4dp</dimen>
+    <dimen name="common_offset_vertical_xs">8dp</dimen>
+    <dimen name="common_offset_vertical_s">12dp</dimen>
+    <dimen name="common_offset_vertical_m">16dp</dimen>
+    <dimen name="common_offset_vertical_l">20dp</dimen>
+    <dimen name="common_offset_vertical_xl">24dp</dimen>
+    <dimen name="common_offset_vertical_2xl">28dp</dimen>
+    <dimen name="common_offset_vertical_3xl">32dp</dimen>
+    <dimen name="common_offset_vertical_4xl">40dp</dimen>
+    <dimen name="common_offset_vertical_5xl">44dp</dimen>
+
+    <dimen name="common_textSize_xxs">4sp</dimen>
+    <dimen name="common_textSize_xs">8sp</dimen>
+    <dimen name="common_textSize_s">12sp</dimen>
+    <dimen name="common_textSize_m">16sp</dimen>
+    <dimen name="common_textSize_l">20sp</dimen>
+    <dimen name="common_textSize_xl">24sp</dimen>
+    <dimen name="common_textSize_2xl">28sp</dimen>
+    <dimen name="common_textSize_3xl">32sp</dimen>
+
+    <!-- Other -->
+
     <dimen name="loader_progressBar_diameter">42dp</dimen>
 
 </resources>

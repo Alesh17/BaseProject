@@ -89,6 +89,5 @@ dependencies {
     implementation appDependencies.viewBindingPropertyDelegate
 
     // DI
-    implementation appDependencies.dagger
-    kapt appDependencies.daggerCompiler
+    kapt globalDependencies.daggerCompiler
 }

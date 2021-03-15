@@ -8,4 +8,6 @@ import com.baseproject.util.viewModel
 class UserDetailsFragment : BaseFragment(R.layout.fragment_user_details) {
 
     override val viewModel by viewModel { App.component.userDetailsViewModel }
+
+    override fun setupInsets() {}
 }

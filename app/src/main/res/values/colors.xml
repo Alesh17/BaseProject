@@ -2,8 +2,16 @@
 <resources>
 
     <!-- Common -->
+
     <color name="colorPrimary">#5C6BC0</color>
     <color name="colorPrimaryDark">#7E57C2</color>
     <color name="colorAccent">#EF5350</color>
+
+    <!-- Other -->
+
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="transparent">#00000000</color>
+    <color name="chetwodeBlueAlpha45">#7398A7F4</color>
 
 </resources>

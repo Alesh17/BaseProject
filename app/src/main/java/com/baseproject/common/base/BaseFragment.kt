@@ -10,13 +10,13 @@ import androidx.annotation.LayoutRes
 import androidx.annotation.StringRes
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavDirections
+import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.afollestad.materialdialogs.MaterialDialog
 import com.baseproject.util.livedata.EventObserver
 import com.baseproject.util.view.buildLoadingDialog
 import com.baseproject.util.view.dialogBuilder
 import com.baseproject.util.view.hideKeyboard
-import com.baseproject.util.view.onBackPressedListener
 import com.baseproject.util.view.snackbar
 import com.baseproject.util.view.toast
 
@@ -26,15 +26,13 @@ abstract class BaseFragment(@LayoutRes layoutId: Int) : Fragment(layoutId) {
 
     private var loadingDialog: Dialog? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        onBackPressedHandler()
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        observeViewModel()
+        setupInsets()
     }
 
-    override fun onStop() {
-        super.onStop()
-        hideKeyboard()
-    }
+    abstract fun setupInsets()
 
     open fun observeViewModel() {
         viewModel.loading.observe(
@@ -44,6 +42,17 @@ abstract class BaseFragment(@LayoutRes layoutId: Int) : Fragment(layoutId) {
             })
     }
 
+    override fun onPause() {
+        super.onPause()
+        hideKeyboard()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        viewModel.error.removeObservers(viewLifecycleOwner)
+        viewModel.loading.removeObservers(viewLifecycleOwner)
+    }
+
     /* Messages */
     fun toast(@StringRes messageStringRes: Int) {
         requireContext().toast(messageStringRes)
@@ -51,6 +60,12 @@ abstract class BaseFragment(@LayoutRes layoutId: Int) : Fragment(layoutId) {
 
     fun snackbar(view: View, @StringRes messageStringRes: Int) {
         requireContext().snackbar(view, messageStringRes)
+    }
+
+    fun dialog(@StringRes titleStringRes: Int, @StringRes messageStringRes: Int) {
+        dialogBuilder(titleStringRes)
+            .message(messageStringRes)
+            .show()
     }
 
     /* Dialogs */
@@ -65,16 +80,16 @@ abstract class BaseFragment(@LayoutRes layoutId: Int) : Fragment(layoutId) {
     }
 
     /* Navigation */
-    private fun onBackPressedHandler() {
-        onBackPressedListener(requireActivity())
-    }
-
     fun navigate(@IdRes resId: Int) {
         findNavController().navigate(resId)
     }
 
     fun navigate(direction: NavDirections) {
         findNavController().navigate(direction)
+    }
+
+    fun navigate(direction: NavDirections, navOptions: NavOptions) {
+        findNavController().navigate(direction, navOptions)
     }
 
     fun navigateBack() {

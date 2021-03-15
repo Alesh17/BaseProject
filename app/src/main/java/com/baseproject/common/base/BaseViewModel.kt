@@ -2,8 +2,14 @@ package com.baseproject.common.base
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.baseproject.util.livedata.Event
 import com.baseproject.domain.error.ApplicationError
+import com.baseproject.util.livedata.Event
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.CoroutineStart
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
+import kotlin.coroutines.CoroutineContext
+import kotlin.coroutines.EmptyCoroutineContext
 
 open class BaseViewModel : ViewModel() {
 
@@ -14,9 +20,12 @@ open class BaseViewModel : ViewModel() {
 
     fun MutableLiveData<Event<Boolean>>.stop() = this.postValue(Event(false))
 
-    suspend fun withLoading(block: suspend () -> Unit) {
+    fun CoroutineScope.launchWithLoading(
+        context: CoroutineContext = EmptyCoroutineContext,
+        start: CoroutineStart = CoroutineStart.DEFAULT,
+        block: suspend CoroutineScope.() -> Unit
+    ): Job {
         loading.start()
-        block()
-        loading.stop()
+        return launch(context, start, block).also { loading.stop() }
     }
 }
