@@ -43,52 +43,6 @@ class UserFragment : BaseFragment(R.layout.fragment_user), View.OnClickListener,
         binding.btnInfo.addSystemWindowInsetToMargin(top = true)
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        binding.btnInfo.setOnClickListener(null)
-        viewModel.details.removeObservers(viewLifecycleOwner)
-        viewModel.user.removeObservers(viewLifecycleOwner)
-        viewModel.error.removeObservers(viewLifecycleOwner)
-        viewModel.loading.removeObservers(viewLifecycleOwner)
-    }
-
-    override fun observeViewModel() {
-        super.observeViewModel()
-
-        viewModel.details.observe(
-            viewLifecycleOwner,
-            EventObserver {
-                val action = actionDetails(it)
-                navigate(action)
-            })
-
-        viewModel.user.observe(
-            viewLifecycleOwner,
-            EventObserver {
-                adapter.submitList(it)
-            })
-
-        viewModel.error.observe(
-            viewLifecycleOwner,
-            EventObserver {
-                binding.laySwipeToRefresh.isRefreshing = false
-                snackbar(binding.root, it.message())
-            })
-    }
-
-    override fun onRefresh() {
-        viewModel.getUsers()
-    }
-
-    override fun onClick(view: View?) {
-        when (view?.id) {
-            R.id.btnInfo -> {
-                showInfoDialog()
-                askPermission.launch(ACCESS_FINE_LOCATION)
-            }
-        }
-    }
-
     private fun setupButtons() {
         binding.btnInfo.setOnClickListener(this)
     }
@@ -115,5 +69,51 @@ class UserFragment : BaseFragment(R.layout.fragment_user), View.OnClickListener,
             negativeButton(R.string.cancel) { this.hide() }
             show()
         }
+    }
+
+    override fun onClick(view: View?) {
+        when (view?.id) {
+            R.id.btnInfo -> {
+                showInfoDialog()
+                askPermission.launch(ACCESS_FINE_LOCATION)
+            }
+        }
+    }
+
+    override fun onRefresh() {
+        viewModel.getUsers()
+    }
+
+    override fun observeViewModel() {
+        super.observeViewModel()
+
+        viewModel.details.observe(
+            viewLifecycleOwner,
+            EventObserver {
+                val action = actionDetails(it)
+                navigate(action)
+            })
+
+        viewModel.user.observe(
+            viewLifecycleOwner,
+            EventObserver {
+                adapter.submitList(it)
+            })
+
+        viewModel.error.observe(
+            viewLifecycleOwner,
+            EventObserver {
+                binding.laySwipeToRefresh.isRefreshing = false
+                snackbar(binding.root, it.message())
+            })
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        binding.btnInfo.setOnClickListener(null)
+        viewModel.details.removeObservers(viewLifecycleOwner)
+        viewModel.user.removeObservers(viewLifecycleOwner)
+        viewModel.error.removeObservers(viewLifecycleOwner)
+        viewModel.loading.removeObservers(viewLifecycleOwner)
     }
 }
