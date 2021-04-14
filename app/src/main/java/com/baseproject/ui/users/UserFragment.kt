@@ -13,7 +13,7 @@ import com.baseproject.databinding.FragmentUserBinding
 import com.baseproject.ui.users.adapter.UserAdapter
 import com.baseproject.util.decoration.LinearLayoutDecoration
 import com.baseproject.util.error.message
-import com.baseproject.util.livedata.EventObserver
+import com.baseproject.util.livedata.collectWhileStarted
 import com.baseproject.util.view.addSystemWindowInsetToMargin
 import com.baseproject.util.viewModel
 import com.baseproject.ui.users.UserFragmentDirections.actionUserFragmentToUserDetailsFragment as actionDetails
@@ -23,7 +23,7 @@ class UserFragment : BaseFragment(R.layout.fragment_user), View.OnClickListener,
 
     private val binding by viewBinding(FragmentUserBinding::bind)
 
-    private val adapter by lazy { UserAdapter(viewModel::openDetails) }
+    private val adapter by lazy { UserAdapter(::openDetails) }
     override val viewModel by viewModel { App.component.userViewModel }
 
     private val askPermission = registerForActivityResult(RequestPermission()) { result ->
@@ -84,36 +84,31 @@ class UserFragment : BaseFragment(R.layout.fragment_user), View.OnClickListener,
         viewModel.getUsers()
     }
 
+    private fun openDetails(itemPosition: Int) {
+        val user = adapter.currentList[itemPosition]
+        val action = actionDetails(user)
+        navigate(action)
+    }
+
     override fun observeViewModel() {
         super.observeViewModel()
 
-        viewModel.details.observe(
-            viewLifecycleOwner,
-            EventObserver {
-                val action = actionDetails(it)
-                navigate(action)
-            })
+        viewModel.status.collectWhileStarted(viewLifecycleOwner) {
+            // doing staff with user status
+        }
 
-        viewModel.user.observe(
-            viewLifecycleOwner,
-            EventObserver {
-                adapter.submitList(it)
-            })
+        viewModel.users.collectWhileStarted(viewLifecycleOwner) {
+            adapter.submitList(it)
+        }
 
-        viewModel.error.observe(
-            viewLifecycleOwner,
-            EventObserver {
-                binding.laySwipeToRefresh.isRefreshing = false
-                snackbar(binding.root, it.message())
-            })
+        viewModel.error.collectWhileStarted(viewLifecycleOwner) {
+            binding.laySwipeToRefresh.isRefreshing = false
+            snackbar(binding.root, it.message())
+        }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         binding.btnInfo.setOnClickListener(null)
-        viewModel.details.removeObservers(viewLifecycleOwner)
-        viewModel.user.removeObservers(viewLifecycleOwner)
-        viewModel.error.removeObservers(viewLifecycleOwner)
-        viewModel.loading.removeObservers(viewLifecycleOwner)
     }
 }

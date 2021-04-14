@@ -1,31 +1,33 @@
 package com.baseproject.common.base
 
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.baseproject.domain.error.ApplicationError
-import com.baseproject.util.livedata.Event
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.CoroutineStart
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.launch
 import kotlin.coroutines.CoroutineContext
 import kotlin.coroutines.EmptyCoroutineContext
 
 open class BaseViewModel : ViewModel() {
 
-    val loading = MutableLiveData<Event<Boolean>>()
-    val error = MutableLiveData<Event<ApplicationError>>()
+    val loading = MutableSharedFlow<Boolean>(replay = 1)
+    val error = MutableSharedFlow<ApplicationError>(replay = 1)
 
-    fun MutableLiveData<Event<Boolean>>.start() = this.postValue(Event(true))
+    suspend fun MutableSharedFlow<Boolean>.start() = this.emit(true)
 
-    fun MutableLiveData<Event<Boolean>>.stop() = this.postValue(Event(false))
+    suspend fun MutableSharedFlow<Boolean>.stop() = this.emit(false)
 
     fun CoroutineScope.launchWithLoading(
         context: CoroutineContext = EmptyCoroutineContext,
         start: CoroutineStart = CoroutineStart.DEFAULT,
         block: suspend CoroutineScope.() -> Unit
     ): Job {
-        loading.start()
-        return launch(context, start, block).also { loading.stop() }
+        return launch(context, start) {
+            loading.start()
+            block()
+            loading.stop()
+        }
     }
 }

@@ -11,6 +11,9 @@ interface UserApi {
     @GET("/api/users")
     suspend fun getUsers(): List<UserResponse>
 
+    @GET("/api/user/status")
+    suspend fun getUserStatus(): Boolean
+
     @GET("/api/users")
     suspend fun getUsersByFilter(@Body filterRequest: UserFilterRequest): List<UserResponse>
 

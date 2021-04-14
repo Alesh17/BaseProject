@@ -10,8 +10,7 @@ def libraryVersions = [
         coreKtxVersion               : '1.3.2',
         constraintLayoutVersion      : '2.0.0',
         recyclerViewVersion          : '1.1.0',
-        lifecycleExtensionsVersion   : '2.2.0',
-        lifecycleViewModelKtxVersion : '2.2.0',
+        lifecycleVersion             : '2.3.1',
         legacySupportVersion         : '1.0.0',
         materialVersion              : '1.2.1',
         cardViewVersion              : '1.0.0',
@@ -61,8 +60,9 @@ ext {
     appDependencies = [
 
             constraintLayout           : "androidx.constraintlayout:constraintlayout:${libraryVersions.constraintLayoutVersion}",
-            lifecycleExtensions        : "androidx.lifecycle:lifecycle-extensions:${libraryVersions.lifecycleExtensionsVersion}",
-            lifecycleViewmodelKtx      : "androidx.lifecycle:lifecycle-viewmodel-ktx:${libraryVersions.lifecycleViewModelKtxVersion}",
+            lifecycleViewmodelKtx      : "androidx.lifecycle:lifecycle-viewmodel-ktx:${libraryVersions.lifecycleVersion}",
+            lifecycleLivedataKtx       : "androidx.lifecycle:lifecycle-livedata-ktx:${libraryVersions.lifecycleVersion}",
+            lifecycleJava8             : "androidx.lifecycle:lifecycle-common-java8:${libraryVersions.lifecycleVersion}",
             legacySupportV4            : "androidx.legacy:legacy-support-v4:${libraryVersions.legacySupportVersion}",
             cardView                   : "androidx.cardview:cardview:${libraryVersions.cardViewVersion}",
             navigationFragmentKtx      : "androidx.navigation:navigation-fragment-ktx:${libraryVersions.navigationVersion}",
