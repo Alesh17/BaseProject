@@ -9,7 +9,7 @@
 A base code which I almost use in every project I work on!
 It shows how to build awesome project with Coroutines & Dagger by Clean Architecture in Kotlin!
 This way you don`t need to repeat the same code in different parts of your project over & over.
-<b>Test keys.properties for initial build [here](https://raw.githubusercontent.com/Alesh17/BaseProject/master/additional/keys.properties). <b>
+Test <u> keys.properties <u> for initial build [here](https://github.com/Alesh17/BaseProject/tree/master/additional).
 
 ### Interestings
 
