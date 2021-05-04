@@ -9,6 +9,7 @@
 A base code which I almost use in every project I work on!
 It shows how to build awesome project with Coroutines & Dagger by Clean Architecture in Kotlin!
 This way you don`t need to repeat the same code in different parts of your project over & over.
+Test keys.properties for initial build [here](https://raw.githubusercontent.com/Alesh17/BaseProject/master/additional/keys.properties).
 
 ### Interestings
 
@@ -30,3 +31,5 @@ Good [article](https://www.atlassian.com/ru/git/tutorials/merging-vs-rebasing) t
 * Branch `activity_result_contracts` contains new ActivityResultContracts samples. [Explanatory picture](https://miro.medium.com/max/1000/1*UJoM9lj5GYKaE4kt3hvV9Q.png) and [docs](https://developer.android.com/training/basics/intents/result).
 
 * Branch `scale_type` contains ImageView ScaleType matrix samples. [Good article](https://medium.com/mobile-app-development-publication/android-matrix-scaletype-explained-4501f0796be8).
+
+* Branch `coroutines_flow` contains some samples of Flow.

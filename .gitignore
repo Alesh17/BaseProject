@@ -14,4 +14,4 @@
 .cxx
 
 # Files with sensitive data
-keys.properties
+/keys.properties
