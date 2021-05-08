@@ -13,7 +13,7 @@ import androidx.navigation.NavDirections
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.afollestad.materialdialogs.MaterialDialog
-import com.baseproject.util.livedata.EventObserver
+import com.baseproject.util.livedata.collectWhileStarted
 import com.baseproject.util.view.buildLoadingDialog
 import com.baseproject.util.view.dialogBuilder
 import com.baseproject.util.view.hideKeyboard
@@ -35,22 +35,12 @@ abstract class BaseFragment(@LayoutRes layoutId: Int) : Fragment(layoutId) {
     abstract fun setupInsets()
 
     open fun observeViewModel() {
-        viewModel.loading.observe(
-            viewLifecycleOwner,
-            EventObserver {
-                showLoading(it)
-            })
+        viewModel.loading.collectWhileStarted(viewLifecycleOwner) { showLoading(it) }
     }
 
     override fun onPause() {
         super.onPause()
         hideKeyboard()
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        viewModel.error.removeObservers(viewLifecycleOwner)
-        viewModel.loading.removeObservers(viewLifecycleOwner)
     }
 
     /* Messages */

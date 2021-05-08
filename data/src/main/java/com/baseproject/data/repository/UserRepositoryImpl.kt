@@ -10,6 +10,8 @@ import com.baseproject.domain.common.constant.SortingConstants
 import com.baseproject.domain.model.dto.User
 import com.baseproject.domain.model.result.Result
 import com.baseproject.domain.repository.UserRepository
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
 class UserRepositoryImpl @Inject constructor(
@@ -28,6 +30,14 @@ class UserRepositoryImpl @Inject constructor(
 
     override suspend fun getUserById(id: Int): Result<User> {
         return safeApiCall { api.getUserById(id).mapToUser() }
+    }
+
+    override fun getUserStatus() = flow {
+        while (true) {
+            val status = safeApiCall { api.getUserStatus() }
+            emit(status)
+            delay(1000)
+        }
     }
 
     override fun saveUserId(id: Int) {

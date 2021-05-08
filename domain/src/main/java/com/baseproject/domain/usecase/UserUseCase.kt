@@ -4,6 +4,7 @@ import com.baseproject.domain.common.constant.SortingConstants
 import com.baseproject.domain.model.dto.User
 import com.baseproject.domain.model.result.Result
 import com.baseproject.domain.repository.UserRepository
+import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 class UserUseCase @Inject constructor(
@@ -20,5 +21,9 @@ class UserUseCase @Inject constructor(
 
     suspend fun getUserById(id: Int): Result<User> {
         return repository.getUserById(id)
+    }
+
+    fun getUserStatus(): Flow<Result<Boolean>> {
+        return repository.getUserStatus()
     }
 }
