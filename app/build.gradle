@@ -92,3 +92,8 @@ dependencies {
     // DI
     kapt globalDependencies.daggerCompiler
 }
+
+android.applicationVariants.all { variant ->
+    variant.resValue "string", "app_version", "${appConfig.versionName} (${appConfig.build})"
+    variant.outputs.all { outputFileName = "${variant.name}-v${variant.versionCode}.apk" }
+}
