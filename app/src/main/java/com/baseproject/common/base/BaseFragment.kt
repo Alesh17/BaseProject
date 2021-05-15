@@ -14,6 +14,7 @@ import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.afollestad.materialdialogs.MaterialDialog
 import com.baseproject.util.livedata.collectWhileStarted
+import com.baseproject.util.permission.checkPermission
 import com.baseproject.util.view.buildLoadingDialog
 import com.baseproject.util.view.dialogBuilder
 import com.baseproject.util.view.hideKeyboard
@@ -85,6 +86,9 @@ abstract class BaseFragment(@LayoutRes layoutId: Int) : Fragment(layoutId) {
     fun navigateBack() {
         findNavController().popBackStack()
     }
+
+    /* Permission */
+    fun checkPermission(permission: String) = requireContext().checkPermission(permission)
 
     /* Other */
     private fun hideKeyboard() {
