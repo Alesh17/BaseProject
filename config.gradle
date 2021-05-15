@@ -44,8 +44,8 @@ ext {
      */
 
     dataConfig = [
-            devUrl     : "http://development.com",
-            prodUrl    : "http://production.com"
+            devUrl : "http://development.com",
+            prodUrl: "http://production.com"
     ]
 
     /**

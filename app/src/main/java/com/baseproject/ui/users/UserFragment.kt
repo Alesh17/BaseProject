@@ -11,11 +11,11 @@ import com.baseproject.R
 import com.baseproject.common.base.BaseFragment
 import com.baseproject.databinding.FragmentUserBinding
 import com.baseproject.ui.users.adapter.UserAdapter
+import com.baseproject.util.dagger.viewModel
 import com.baseproject.util.error.message
 import com.baseproject.util.flow.collectWhileStarted
 import com.baseproject.util.recycler.decoration.LinearLayoutDecoration
 import com.baseproject.util.view.addSystemWindowInsetToMargin
-import com.baseproject.util.dagger.viewModel
 import com.baseproject.ui.users.UserFragmentDirections.actionUserFragmentToUserDetailsFragment as actionDetails
 
 class UserFragment : BaseFragment(R.layout.fragment_user), View.OnClickListener,

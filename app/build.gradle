@@ -78,6 +78,7 @@ dependencies {
     implementation appDependencies.navigationUiKtx
     implementation appDependencies.activityKtx
     implementation appDependencies.fragmentKtx
+    implementation appDependencies.glide
 
     // Material design system
     implementation appDependencies.material
