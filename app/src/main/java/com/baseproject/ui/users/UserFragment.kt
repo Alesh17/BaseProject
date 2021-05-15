@@ -110,6 +110,5 @@ class UserFragment : BaseFragment(R.layout.fragment_user), View.OnClickListener,
     override fun onDestroyView() {
         super.onDestroyView()
         binding.rvUsers.adapter = null
-        binding.btnInfo.setOnClickListener(null)
     }
 }
