@@ -1,6 +1,7 @@
 <resources>
 
     <!-- Common strings -->
+
     <string name="app_name">Base Project</string>
     <string name="email_example">example@mail.com</string>
     <string name="password_example">•••••••</string>
@@ -12,6 +13,7 @@
     <string name="cancel">Cancel</string>
 
     <!-- Errors -->
+
     <string name="generic_error">Something went wrong. Please try later.</string>
     <string name="server_error">Server error. Please try later.</string>
     <string name="timeout_error">Timeout error. Please try again when network stabilizes.</string>
@@ -21,6 +23,7 @@
     <string name="badRequest_error">400 error. Bad request. Please try later.</string>
 
     <!-- Permission -->
+
     <string name="save_file_permission_error">To download a file, you must obtain permission to write to the phone storage.</string>
     <string name="image_picker_permission_error">To set image profile, you must obtain permission to read to the phone storage.</string>
 

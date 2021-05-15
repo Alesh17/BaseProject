@@ -1,4 +1,4 @@
-package com.baseproject.util.livedata
+package com.baseproject.util.flow
 
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner

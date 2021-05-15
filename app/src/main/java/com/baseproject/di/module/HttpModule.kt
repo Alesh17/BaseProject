@@ -6,6 +6,7 @@ import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
+import okhttp3.logging.HttpLoggingInterceptor.Level.BODY
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
@@ -20,11 +21,7 @@ object HttpModule {
                 connectTimeout(TIME_OUT, TimeUnit.SECONDS)
                 readTimeout(TIME_OUT, TimeUnit.SECONDS)
                 writeTimeout(TIME_OUT, TimeUnit.SECONDS)
-                if (BuildConfig.DEBUG) addInterceptor(
-                    HttpLoggingInterceptor().setLevel(
-                        HttpLoggingInterceptor.Level.BODY
-                    )
-                )
+                if (BuildConfig.DEBUG) addInterceptor(HttpLoggingInterceptor().setLevel(BODY))
             }
             .build()
     }

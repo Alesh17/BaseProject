@@ -1,6 +1,6 @@
 @file:Suppress("UNCHECKED_CAST")
 
-package com.baseproject.util
+package com.baseproject.util.dagger
 
 import androidx.activity.viewModels
 import androidx.fragment.app.Fragment

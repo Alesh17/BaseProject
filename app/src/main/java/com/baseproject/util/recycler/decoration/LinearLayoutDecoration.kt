@@ -1,4 +1,4 @@
-package com.baseproject.util.decoration
+package com.baseproject.util.recycler.decoration
 
 import android.graphics.Rect
 import android.view.View

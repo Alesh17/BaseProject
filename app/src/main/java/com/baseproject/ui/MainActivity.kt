@@ -7,7 +7,7 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.baseproject.App
 import com.baseproject.R
 import com.baseproject.databinding.ActivityMainBinding
-import com.baseproject.util.viewModel
+import com.baseproject.util.dagger.viewModel
 
 class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
