@@ -1,8 +1,8 @@
 package com.baseproject.ui
 
 import android.os.Bundle
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.WindowCompat
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.baseproject.App
 import com.baseproject.R
@@ -20,7 +20,6 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
     }
 
     private fun setupTransparentStatusBar() {
-        binding.root.systemUiVisibility =
-            View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+        WindowCompat.setDecorFitsSystemWindows(window, false)
     }
 }
