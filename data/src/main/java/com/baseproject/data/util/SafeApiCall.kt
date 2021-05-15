@@ -17,9 +17,13 @@ suspend fun <T> safeApiCall(apiCall: suspend () -> T): Result<T> {
     } catch (throwable: Throwable) {
         when (throwable) {
             is SocketTimeoutException -> Result.Error(ApplicationError.TimeOut)
-            is ConnectException -> Result.Error(ApplicationError.NoInternetConnection)
-            is UnknownHostException -> Result.Error(ApplicationError.NoInternetConnection)
-            is HttpException -> {
+            is ConnectException       -> Result.Error(ApplicationError.NoInternetConnection)
+            is UnknownHostException   -> Result.Error(ApplicationError.NoInternetConnection)
+            is HttpException          -> {
+
+                val error = throwable.getCustomHttpError().getApplicationErrorOrNull()
+                if (error != null) return Result.Error(error)
+
                 when (throwable.code()) {
                     HTTP_BAD_REQUEST    -> Result.Error(ApplicationError.BadRequest)
                     HTTP_UNAUTHORIZED   -> Result.Error(ApplicationError.Unauthorized)

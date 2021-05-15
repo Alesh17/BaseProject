@@ -14,5 +14,9 @@ sealed class ApplicationError {
     object NotFound : ApplicationError()
     object TimeOut : ApplicationError()
     object Server : ApplicationError()
+
+    // Client validation errors
+
+    object EmptyFiled : ApplicationError()
 }
 

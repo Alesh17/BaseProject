@@ -22,6 +22,8 @@
     <string name="notFound_error">404 error. Please try later.</string>
     <string name="badRequest_error">400 error. Bad request. Please try later.</string>
 
+    <string name="emptyField_error">This field must not be empty.</string>
+
     <!-- Permission -->
 
     <string name="save_file_permission_error">To download a file, you must obtain permission to write to the phone storage.</string>

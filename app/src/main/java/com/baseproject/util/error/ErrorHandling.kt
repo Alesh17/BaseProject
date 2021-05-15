@@ -15,4 +15,6 @@ fun ApplicationError.message() =
         ApplicationError.Unauthorized         -> R.string.unauthorized_error
         ApplicationError.TimeOut              -> R.string.timeout_error
         ApplicationError.Server               -> R.string.server_error
+
+        ApplicationError.EmptyFiled           -> R.string.emptyField_error
     }
