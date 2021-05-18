@@ -4,34 +4,32 @@
 
 def libraryVersions = [
 
-        androidGradlePluginVersion   : '4.1.3',
-        kotlinGradlePluginVersion    : '1.4.20',
+        androidGradlePlugin        : '4.1.3',
+        kotlinGradlePlugin         : '1.4.20',
+        coreKtx                    : '1.5.0-rc02',
 
-        coreKtxVersion               : '1.5.0-rc02',
-        constraintLayoutVersion      : '2.0.0',
-        recyclerViewVersion          : '1.1.0',
-        lifecycleVersion             : '2.3.1',
-        legacySupportVersion         : '1.0.0',
-        materialVersion              : '1.3.0',
-        cardViewVersion              : '1.0.0',
-        materialDialogs              : '3.3.0',
-        viewBindingPropertyDelegate  : '1.4.6',
+        lifecycle                  : '2.3.1',
+        material                   : '1.3.0',
+        constraintLayout           : '2.0.0',
+        recyclerView               : '1.1.0',
+        cardView                   : '1.0.0',
+        legacySupport              : '1.0.0',
+        materialDialogs            : '3.3.0',
+        viewBindingPropertyDelegate: '1.4.6',
 
-        architectureComponentsVersion: '2.1.0',
-        navigationVersion            : '2.3.5',
-        daggerVersion                : '2.35.1',
-        ktxActivityVersion           : '1.2.3',
-        ktxFragmentVersion           : '1.3.3',
-        glide                        : '4.12.0',
+        ktxActivity                : '1.2.3',
+        ktxFragment                : '1.3.3',
+        navigation                 : '2.3.5',
+        dagger                     : '2.35.1',
+        glide                      : '4.12.0',
 
-        retrofitVersion              : '2.9.0',
-        okHttpVersion                : '4.9.0',
-        gsonVersion                  : '2.8.6',
+        retrofit                   : '2.9.0',
+        okHttp                     : '4.9.0',
+        gson                       : '2.8.6',
 
-        coroutineVersion             : '1.5.0',
-        securityCryptoVersion        : '1.1.0-alpha03',
-        leakCanary                   : '2.7',
-        javaxInjectVersion           : '1'
+        coroutines                 : '1.5.0',
+        securityCrypto             : '1.1.0-alpha03',
+        leakCanary                 : '2.7',
 ]
 
 ext {
@@ -46,13 +44,13 @@ ext {
             layerData               : project(":data"),
             layerDomain             : project(":domain"),
 
-            androidGradlePlugin     : "com.android.tools.build:gradle:${libraryVersions.androidGradlePluginVersion}",
-            kotlinGradlePlugin      : "org.jetbrains.kotlin:kotlin-gradle-plugin:${libraryVersions.kotlinGradlePluginVersion}",
-            navigationSafeArgsPlugin: "androidx.navigation:navigation-safe-args-gradle-plugin:${libraryVersions.navigationVersion}",
-            coreKtx                 : "androidx.core:core-ktx:${libraryVersions.coreKtxVersion}",
+            androidGradlePlugin     : "com.android.tools.build:gradle:${libraryVersions.androidGradlePlugin}",
+            kotlinGradlePlugin      : "org.jetbrains.kotlin:kotlin-gradle-plugin:${libraryVersions.kotlinGradlePlugin}",
+            navigationSafeArgsPlugin: "androidx.navigation:navigation-safe-args-gradle-plugin:${libraryVersions.navigation}",
+            coreKtx                 : "androidx.core:core-ktx:${libraryVersions.coreKtx}",
 
-            dagger                  : "com.google.dagger:dagger:${libraryVersions.daggerVersion}",
-            daggerCompiler          : "com.google.dagger:dagger-compiler:${libraryVersions.daggerVersion}"
+            dagger                  : "com.google.dagger:dagger:${libraryVersions.dagger}",
+            daggerCompiler          : "com.google.dagger:dagger-compiler:${libraryVersions.dagger}"
     ]
 
     /**
@@ -61,19 +59,19 @@ ext {
 
     appDependencies = [
 
-            constraintLayout           : "androidx.constraintlayout:constraintlayout:${libraryVersions.constraintLayoutVersion}",
-            lifecycleViewmodelKtx      : "androidx.lifecycle:lifecycle-viewmodel-ktx:${libraryVersions.lifecycleVersion}",
-            lifecycleLivedataKtx       : "androidx.lifecycle:lifecycle-livedata-ktx:${libraryVersions.lifecycleVersion}",
-            lifecycleJava8             : "androidx.lifecycle:lifecycle-common-java8:${libraryVersions.lifecycleVersion}",
-            legacySupportV4            : "androidx.legacy:legacy-support-v4:${libraryVersions.legacySupportVersion}",
-            cardView                   : "androidx.cardview:cardview:${libraryVersions.cardViewVersion}",
-            navigationFragmentKtx      : "androidx.navigation:navigation-fragment-ktx:${libraryVersions.navigationVersion}",
-            navigationUiKtx            : "androidx.navigation:navigation-ui-ktx:${libraryVersions.navigationVersion}",
-            activityKtx                : "androidx.activity:activity-ktx:${libraryVersions.ktxActivityVersion}",
-            fragmentKtx                : "androidx.fragment:fragment-ktx:${libraryVersions.ktxFragmentVersion}",
-            material                   : "com.google.android.material:material:${libraryVersions.materialVersion}",
-            glide                      : "com.github.bumptech.glide:glide:${libraryVersions.glide}",
+            constraintLayout           : "androidx.constraintlayout:constraintlayout:${libraryVersions.constraintLayout}",
+            lifecycleViewmodelKtx      : "androidx.lifecycle:lifecycle-viewmodel-ktx:${libraryVersions.lifecycle}",
+            lifecycleLivedataKtx       : "androidx.lifecycle:lifecycle-livedata-ktx:${libraryVersions.lifecycle}",
+            lifecycleJava8             : "androidx.lifecycle:lifecycle-common-java8:${libraryVersions.lifecycle}",
+            legacySupportV4            : "androidx.legacy:legacy-support-v4:${libraryVersions.legacySupport}",
+            cardView                   : "androidx.cardview:cardview:${libraryVersions.cardView}",
+            navigationFragmentKtx      : "androidx.navigation:navigation-fragment-ktx:${libraryVersions.navigation}",
+            navigationUiKtx            : "androidx.navigation:navigation-ui-ktx:${libraryVersions.navigation}",
+            activityKtx                : "androidx.activity:activity-ktx:${libraryVersions.ktxActivity}",
+            fragmentKtx                : "androidx.fragment:fragment-ktx:${libraryVersions.ktxFragment}",
+            material                   : "com.google.android.material:material:${libraryVersions.material}",
 
+            glide                      : "com.github.bumptech.glide:glide:${libraryVersions.glide}",
             materialDialogsCore        : "com.afollestad.material-dialogs:core:${libraryVersions.materialDialogs}",
             materialDialogsLifecycle   : "com.afollestad.material-dialogs:lifecycle:${libraryVersions.materialDialogs}",
             viewBindingPropertyDelegate: "com.github.kirich1409:viewbindingpropertydelegate-noreflection:${libraryVersions.viewBindingPropertyDelegate}",
@@ -85,13 +83,13 @@ ext {
 
     dataDependencies = [
 
-            gson                    : "com.google.code.gson:gson:${libraryVersions.gsonVersion}",
-            retrofit                : "com.squareup.retrofit2:retrofit:${libraryVersions.retrofitVersion}",
-            retrofitConverterGson   : "com.squareup.retrofit2:converter-gson:${libraryVersions.retrofitVersion}",
-            okHttp                  : "com.squareup.okhttp3:okhttp:${libraryVersions.okHttpVersion}",
-            okHttpLoggingInterceptor: "com.squareup.okhttp3:logging-interceptor:${libraryVersions.okHttpVersion}",
+            gson                    : "com.google.code.gson:gson:${libraryVersions.gson}",
+            retrofit                : "com.squareup.retrofit2:retrofit:${libraryVersions.retrofit}",
+            retrofitConverterGson   : "com.squareup.retrofit2:converter-gson:${libraryVersions.retrofit}",
+            okHttp                  : "com.squareup.okhttp3:okhttp:${libraryVersions.okHttp}",
+            okHttpLoggingInterceptor: "com.squareup.okhttp3:logging-interceptor:${libraryVersions.okHttp}",
 
-            securityCrypto          : "androidx.security:security-crypto:${libraryVersions.securityCryptoVersion}"
+            securityCrypto          : "androidx.security:security-crypto:${libraryVersions.securityCrypto}"
     ]
 
     /**
@@ -100,8 +98,8 @@ ext {
 
     domainDependencies = [
 
-            coroutinesCore   : "org.jetbrains.kotlinx:kotlinx-coroutines-core:${libraryVersions.coroutineVersion}",
-            coroutinesAndroid: "org.jetbrains.kotlinx:kotlinx-coroutines-android:${libraryVersions.coroutineVersion}",
+            coroutinesCore   : "org.jetbrains.kotlinx:kotlinx-coroutines-core:${libraryVersions.coroutines}",
+            coroutinesAndroid: "org.jetbrains.kotlinx:kotlinx-coroutines-android:${libraryVersions.coroutines}",
 
             leakCanary       : "com.squareup.leakcanary:leakcanary-android:${libraryVersions.leakCanary}",
     ]
