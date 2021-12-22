@@ -31,7 +31,7 @@ Good [article](https://www.atlassian.com/ru/git/tutorials/merging-vs-rebasing) t
 
 ### Testing
 
-* Espresso [cheat sheet](https://raw.githubusercontent.com/Alesh17/BaseProject/master/additional/espresso_cheat.pdf).
+* Espresso [cheat sheet](https://android.github.io/android-test/downloads/espresso-cheat-sheet-2.1.0.pdf).
 
 ### Features inside
 
