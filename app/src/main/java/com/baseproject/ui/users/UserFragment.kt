@@ -21,9 +21,8 @@ import com.baseproject.ui.users.UserFragmentDirections.actionUserFragmentToUserD
 class UserFragment : BaseFragment(R.layout.fragment_user), View.OnClickListener,
     SwipeRefreshLayout.OnRefreshListener {
 
-    private val binding by viewBinding(FragmentUserBinding::bind)
-
     private val adapter by lazy { UserAdapter(::openDetails) }
+    private val binding by viewBinding(FragmentUserBinding::bind)
     override val viewModel by viewModel { App.component.userViewModel }
 
     private val askPermission = registerForActivityResult(RequestPermission()) { result ->
@@ -38,6 +37,8 @@ class UserFragment : BaseFragment(R.layout.fragment_user), View.OnClickListener,
         setupRecyclerView()
         setupSwipeToRefresh()
     }
+
+    /* region Setups */
 
     override fun setupInsets() {
         binding.btnInfo.addSystemWindowInsetToMargin(top = true)
@@ -57,6 +58,10 @@ class UserFragment : BaseFragment(R.layout.fragment_user), View.OnClickListener,
         binding.rvUsers.adapter = adapter
         binding.rvUsers.addItemDecoration(LinearLayoutDecoration(margin))
     }
+
+    /* endregion */
+
+    /* region Other */
 
     private fun showInfoDialog() {
 
@@ -111,4 +116,6 @@ class UserFragment : BaseFragment(R.layout.fragment_user), View.OnClickListener,
         super.onDestroyView()
         binding.rvUsers.adapter = null
     }
+
+    /* endregion */
 }
