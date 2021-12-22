@@ -29,6 +29,10 @@ The main difference of rebase: is that it rewrites the history of the project, c
 Good [article](https://www.atlassian.com/ru/git/tutorials/merging-vs-rebasing) to consolidate.
 * How to [send FCM push from Postman](https://medium.com/android-school/test-fcm-notification-with-postman-f91ba08aacc3).
 
+### Testing
+
+* Espresso [cheat sheet](https://raw.githubusercontent.com/Alesh17/BaseProject/master/additional/espresso_cheat.pdf).
+
 ### Features inside
 
 * Branch `activity_result_contracts` contains new ActivityResultContracts samples. [Explanatory picture](https://miro.medium.com/max/1000/1*UJoM9lj5GYKaE4kt3hvV9Q.png) and [docs](https://developer.android.com/training/basics/intents/result).
