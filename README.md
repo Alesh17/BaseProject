@@ -21,7 +21,7 @@ This way you don`t need to repeat the same code in different parts of your proje
 
 * Sorting: [Bubble](https://gist.github.com/Alesh17/2af261d7c3c629018f3503cdeca0f9c1) and [Quick](https://gist.github.com/Alesh17/a6cb93902a096c455a5475e88435daea).
 * Fragments [lifecycle](https://github.com/Alesh17/SmartFragments) during routing.
-* [Main design patterns](https://github.com/Alesh17/SmartFragments) in Kotlin with examples and explanations.
+* [Main design patterns](https://github.com/Alesh17/SmartPatterns) in Kotlin with examples and explanations.
 * Awesome pic that displays the entire [Collections family](https://raw.githubusercontent.com/Alesh17/BaseProject/master/additional/collections.png).
 * [Cheat Sheet](https://medium.com/mobile-app-development-publication/kotlin-collection-functions-cheat-sheet-975371a96c4b) for Kotlin Collections functions. [Separate picture](https://miro.medium.com/max/6192/1*K1BGRTUJ8eZTw5E1Qnv2pw.png).
 * Great pics for understanding 
