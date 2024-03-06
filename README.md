@@ -30,7 +30,7 @@ This way you don`t need to repeat the same code in different parts of your proje
 The main difference of rebase: is that it rewrites the history of the project, creating new commits for each commit in the original branch.
 Good [article](https://www.atlassian.com/ru/git/tutorials/merging-vs-rebasing) to consolidate.
 * How to [send FCM push from Postman](https://medium.com/android-school/test-fcm-notification-with-postman-f91ba08aacc3).
-* How to [change a string in whole git history]([https://medium.com/android-school/test-fcm-notification-with-postman-f91ba08aacc3](https://gist.github.com/Alesh17/ad73a8c7600139fc0804a0853b2f16c5)).
+* How to [change a string in whole git history](https://gist.github.com/Alesh17/ad73a8c7600139fc0804a0853b2f16c5).
 
 ### Guide how to publish your library on Jitpack:
 
