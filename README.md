@@ -31,6 +31,7 @@ The main difference of rebase: is that it rewrites the history of the project, c
 Good [article](https://www.atlassian.com/ru/git/tutorials/merging-vs-rebasing) to consolidate.
 * How to [send FCM push from Postman](https://medium.com/android-school/test-fcm-notification-with-postman-f91ba08aacc3).
 * How to [change a string in whole git history](https://gist.github.com/Alesh17/ad73a8c7600139fc0804a0853b2f16c5).
+* How to [enable ADB terminal commands in Android Studio](https://gist.github.com/Alesh17/4804663f62d435bba9cec64b9b9a635a) (MacOs).
 
 ### Guide how to publish your library on Jitpack:
 
