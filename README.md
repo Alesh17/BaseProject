@@ -19,6 +19,7 @@ This way you don`t need to repeat the same code in different parts of your proje
 
 ### Cognitive
 
+* Difference and dependency between: [Gradle, AGP, Kotlin, Buildtools, Java and AndroidStudio versions](https://gist.github.com/Alesh17/a82b3ce10f7295f6f098cd588f6770e3).
 * Sorting: [Bubble](https://gist.github.com/Alesh17/2af261d7c3c629018f3503cdeca0f9c1) and [Quick](https://gist.github.com/Alesh17/a6cb93902a096c455a5475e88435daea).
 * Fragments [lifecycle](https://github.com/Alesh17/SmartFragments) during routing.
 * [Main design patterns](https://github.com/Alesh17/SmartPatterns) in Kotlin with examples and explanations.
